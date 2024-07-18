@@ -4,6 +4,7 @@
     "slug": "suivi",
     "version": "1.0.0",
     "orientation": "portrait",
+    "entryPoint": "index.tsx",
     // "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
@@ -27,7 +28,13 @@
       // "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      [
+        "expo-router",
+        {
+          // "root": "./"
+          "root": "./src/app"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
