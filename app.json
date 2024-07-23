@@ -35,6 +35,5 @@
     },
     "sdkVersion": "51.0.0",
     "jsEngine": "hermes"
-  },
-  "name": "suivi"
+  }
 }
