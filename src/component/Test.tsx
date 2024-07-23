@@ -1,7 +1,7 @@
 import { Button } from "react-native";
 import { getRequest } from 'service/testRequest.js'
 
-function testRequest(): void {
+function testRequest(): any {
   getRequest().then((res) => {
     console.log(res)
     debugger

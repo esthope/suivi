@@ -1,4 +1,8 @@
-const identifiers = `${process.env.AUTH_TOKEN}:''`,
+import axios from 'axios';
+global.Buffer = require('buffer').Buffer;
+
+// configure authorisation
+const identifiers = `f4547ec8-19e7-4b0a-bb2c-50792519fb97:`;
       credentials = Buffer.from(identifiers).toString('base64');
 
 // Set default configurations
