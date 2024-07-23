@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import App from './src/App';
+import App from '../App.js';
 
 export default function Index() {
   return (
@@ -11,6 +11,7 @@ export default function Index() {
       }}
     >
       <Text>Edit app/index.tsx to edit this screen.</Text>
+      <App />
     </View>
   );
 }
