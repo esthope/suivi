@@ -4,12 +4,9 @@
     "slug": "suivi",
     "version": "1.0.0",
     "orientation": "portrait",
-    "entryPoint": "index.tsx",
-    // "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      // "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,26 +15,25 @@
     },
     "android": {
       "adaptiveIcon": {
-        // "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
-      // "favicon": "./assets/images/favicon.png"
+      "output": "static"
     },
     "plugins": [
       [
         "expo-router",
         {
-          // "root": "./"
           "root": "./src/app"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
-    }
-  }
+    },
+    "sdkVersion": "51.0.0"
+  },
+  "name": "suivi"
 }
