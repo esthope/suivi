@@ -3,9 +3,9 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "component/*": "./src/component/*",
+      "helper/*": "./src/helper/*",
+      "service/*": "./src/network/service/*"
     }
   },
   "include": [
