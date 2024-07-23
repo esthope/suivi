@@ -1,9 +1,15 @@
-import { Text, Button } from "react-native";
-const axios = require('axios').default;
+import { Button } from "react-native";
+import { getRequest } from 'service/testRequest.js'
 
 function testRequest(): void {
-  debugger
-	console.log('axios')
+  getRequest().then((res) => {
+    console.log(res)
+    debugger
+  })
+  .catch((err) => {
+    console.log(err)
+    debugger
+  })
 }
 
 export default function Test({ title }: { title: string }) {

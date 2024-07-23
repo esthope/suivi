@@ -19,9 +19,13 @@
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/native": "^6.0.2",
     "axios": "^1.7.2",
+<<<<<<< HEAD
     "expo": "^51.0.21",
+=======
+    "expo": "^51.0.22",
+>>>>>>> 95e65c590d68a002b4a2a5aa65c5af88063f9ccd
     "expo-constants": "~16.0.2",
-    "expo-font": "~12.0.8",
+    "expo-font": "^12.0.9",
     "expo-linking": "~6.3.1",
     "expo-router": "~3.5.18",
     "expo-splash-screen": "~0.27.5",

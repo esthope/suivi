@@ -1,6 +1,7 @@
-import { Text, View, Button } from "react-native";
+import { View } from "react-native";
 
-import App from '../../App.tsx';
+import App from '../../App';
+// import App from '../../App.js';
 
 export default function Index() {
   return (
@@ -12,7 +13,6 @@ export default function Index() {
       }}
     >
       <App />
-      {/* <Text>test</Text> */}
     </View>
   );
 }

@@ -33,7 +33,13 @@
     "experiments": {
       "typedRoutes": true
     },
+<<<<<<< HEAD
     "sdkVersion": "51.0.0"
   },
   "name": "suivi"
+=======
+    "sdkVersion": "51.0.0",
+    "jsEngine": "hermes"
+  }
+>>>>>>> 95e65c590d68a002b4a2a5aa65c5af88063f9ccd
 }
