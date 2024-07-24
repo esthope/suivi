@@ -2,18 +2,23 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "target": "ES2015",
+    "allowJs": true,
+    // "outDir": "dist",
+    // "noEmitOnError": true,
     "paths": {
       "app/*": ["./src/app/*"],
       "component/*": ["./src/component/*"],
+      "constant/*": ["./src/constant/*"],
       "helper/*": ["./src/helper/*"],
       "service/*": ["./src/network/service/*"]
     }
   },
+  // "files": [erreur si non trouvés],
+  // "references": [improve build https://www.typescriptlang.org/docs/handbook/project-references.html],
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ]

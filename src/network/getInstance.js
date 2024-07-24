@@ -1,8 +1,11 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
 global.Buffer = require('buffer').Buffer;
 
+dotenv.config()
+
 // configure authorisation
-const identifiers = `f4547ec8-19e7-4b0a-bb2c-50792519fb97:`;
+const identifiers = `${process.env.AUTH_TOKEN}:`,
       credentials = Buffer.from(identifiers).toString('base64');
 
 // Set default configurations
