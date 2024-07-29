@@ -1,3 +1,9 @@
+interface Place {
+	embedded_type: string,
+	id: string,
+	name: string
+}
+
 interface BigBrother {
 	id: string,
 	linked_id: string,

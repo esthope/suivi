@@ -1,8 +1,9 @@
 import {useState, useEffect, ReactElement} from 'react';
 import {View, Box, Select, Input, VStack,Stack,Text,Center} from "native-base";
+import {Journey} from 'constant/interface'
 import DropdownInput from 'component/DropdownInput';
 import CustomButton from 'component/CustomButton';
-import {fetchJourneys, fetchAreaDirections} from 'route/journey';
+import searchJourneys from 'util/searchJourneys';
 
 const SearchForm = (): ReactElement => {
   const [isLoaded, setIsLoaded] = useState(false),
@@ -14,22 +15,11 @@ const SearchForm = (): ReactElement => {
         [toStation, setToStation] = useState('');
 
   const onSearchJourneys = async (): void => {
-    let station=fromStation,
-        direction='FROM',
-        fetchedJourneys = [];
-
-    if (toStation) {
-      station = toStation
-      direction = 'TO'
-    }
+    let fetchedJourneys = [];
 
     // 87313874 87286005
     try {
-      if (fromStation && toStation) {
-        fetchedJourneys = await fetchJourneys(fromStation, toStation, datetime, Number(maxFecth), Number(minFecth));
-      } else if (station) {
-        fetchedJourneys = await fetchAreaDirections(station, direction, datetime);
-      }
+      fetchedJourneys = await searchJourneys(fromStation, toStation, datetime, Number(maxFecth), Number(minFecth))
     } catch(err) {
       console.log(err)
     }

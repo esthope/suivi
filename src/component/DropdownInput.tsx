@@ -2,7 +2,7 @@ import { useState, ReactElement } from "react";
 import {style} from 'constant/FormStyle';
 import {View, TextInput, Text} from "react-native";
 import {VStack, Input, Pressable, FlatList, Icon} from 'native-base'
-import {fetchPlaces} from 'route/station';
+import {fetchPlaces} from 'service/station';
 
 const DropdownInput = ({ onSetStation, placeholder }): ReactElement => {
   const [station, setStation] = useState({}),

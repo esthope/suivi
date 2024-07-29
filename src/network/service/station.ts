@@ -1,14 +1,10 @@
-import {getPlaces} from 'service/station';
+import axiosInstance from '../getInstance.js';
+import {Place} from 'constant/interface';
 
-interface Place {
-	embedded_type: string,
-	id: string,
-	name: string
-}
-
-export const fetchPlaces = (selection: string): Array<Place> => {
-	return getPlaces(selection)
-  	.then((res) => {
+export const getPlaces = (selection: string): Array<Place> => {
+	// &type[]=administrative_region
+	return axiosInstance.get(`/places?q=${selection}`)
+	.then((res) => {
     
 	    const {data} = res,
 	          status = res.status;
