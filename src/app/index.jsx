@@ -1,19 +1,10 @@
-import { View, Text } from "react-native";
-
+import {NativeBaseProvider, View, Text} from "native-base";
 import App from '../../App';
-// import App from '../../App.js';
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <NativeBaseProvider>
       <App />
-      {/* <Text text="t  est" /> */}
-    </View>
+    </NativeBaseProvider>
   );
 }

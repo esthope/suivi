@@ -10,8 +10,11 @@
       "app/*": ["./src/app/*"],
       "component/*": ["./src/component/*"],
       "constant/*": ["./src/constant/*"],
-      "helper/*": ["./src/helper/*"],
-      "service/*": ["./src/network/service/*"]
+      "route/*": ["./src/network/route/*"],
+      "service/*": ["./src/network/service/*"],
+      "screen/*": ["./src/screen/*"],
+      "test/*": ["./src/test/*"],
+      "util/*": ["./src/util/*"]
     }
   },
   // "files": [erreur si non trouvés],

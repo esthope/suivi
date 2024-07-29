@@ -6,6 +6,17 @@
 const tintColorLight = '#0a7ea4';
 const tintColorDark = '#fff';
 
+export const ScreenOptions = {
+  headerShown: false,
+  contentStyle: { 
+    backgroundColor: 'white',
+    flex: 1,
+    paddingLeft: 10,
+    paddingRight: 10,
+    justifyContent: 'center'
+  }
+}
+
 export const Colors = {
   light: {
     text: '#11181C',
