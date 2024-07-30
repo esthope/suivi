@@ -14,13 +14,11 @@ export function getJourneys(from: string, to: string, datetime?: string, maxFect
 export function getPointDirections(stop_point: string, dir_type: string, datetime?: string):Promise<AxiosResponse<any, any>> {
 	const direction = (dir_type == 'FROM') ? 'departures' : 'arrivals';
 	datetime = datetime ?? '20240724T165000';
-
 	return axiosInstance.get(`/stop_points/${stop_point}/${direction}?from_datetime=${datetime}`);
 }
 
 export function getAreaDirections(stop_area: string, dir_type: string, datetime?: string): Promise<AxiosResponse<any, any>> {
 	const direction = (dir_type == 'FROM') ? 'departures' : 'arrivals';
 	datetime = datetime ?? '20240724T165000';
-
 	return axiosInstance.get(`/stop_areas/${stop_area}/${direction}?from_datetime=${datetime}`);
 }

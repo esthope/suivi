@@ -1,17 +1,18 @@
 import {getJourneys, getAreaDirections} from 'service/journey';
 import {Journey} from 'constant/interfaces'
 
+let fetchedJourneys: Array<Journey>,
+    currentJourney: Journey;
+
 const searchJourneys = async (
     fromPoint: string,
     toStation: string,
     datetime?: string,
     maxFecth?: number,
     minFecth?: number
-): Array<Journey> =>
+): Promise<Journey[]> =>
 {
-    let fetchedJourneys: Journey[],
-        currentJourney: Journey,
-        station=fromPoint,
+    let station=fromPoint,
         direction='FROM';
 
     if (toStation) {
@@ -67,7 +68,7 @@ const searchJourneys = async (
         .then((res) => {
           	const {data} = res,
                 sCode = data.code,
-                aJourneys = (type == 'FROM') ? data?.departures : data?.arrivals,
+                aJourneys = (direction == 'FROM') ? data?.departures : data?.arrivals,
                 aDisruptions = data.disruptions;
 
           	console.log('DIR : ', res.request.responseURL);
@@ -77,6 +78,7 @@ const searchJourneys = async (
           	console.log('noooon ', err.code, err.request.responseURL);
         })
     }
+
     return fetchedJourneys;
 }
 
