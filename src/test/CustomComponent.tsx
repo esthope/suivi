@@ -1,5 +1,5 @@
 import {useState, useEffect, ReactElement} from 'react';
-import {View, Box, Select, Input, VStack, Stack,T ext, Center} from "native-base";
+import {View, Box, Select, Input, VStack, Stack, Text, Center} from "native-base";
 import DropdownInput from 'component/DropdownInput';
 import {fetchJourneys, fetchAreaDirections} from 'service/journey';
 

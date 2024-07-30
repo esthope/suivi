@@ -1,10 +1,10 @@
-interface Place {
+export interface Place {
 	embedded_type: string,
 	id: string,
 	name: string
 }
 
-interface BigBrother {
+export interface BigBrother {
 	id: string,
 	linked_id: string,
 	type: "ONE" | "DAYS" | "STALK",
@@ -18,17 +18,17 @@ interface BigBrother {
 	disruption_onlye: true | false
 }
 
-interface Journey {
+export interface Journey {
 	id: string,
 	seleted_from: string,
 	seleted_to: string,
 	line_code: string,
 	datetime_departure: string,
 	datetime_arrival: string,
-	journey_statut: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
+	journey_status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
 	stops_and_datetimes: Array<object>,
 	disturbtions: Array<object>,
-	duration: interger,
+	duration: number,
 	formatted_duration: string, 
 	brotherIsWatching: [true | false]
 }

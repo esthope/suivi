@@ -14,16 +14,14 @@ const SearchForm = (): ReactElement => {
         [fromStation, setFromStation] = useState(''),
         [toStation, setToStation] = useState('');
 
-  const onSearchJourneys = async (): void => {
-    let fetchedJourneys = [];
-
+  const onPressSearch = async (): Promise<void> => {
     // 87313874 87286005
     try {
-      fetchedJourneys = await searchJourneys(fromStation, toStation, datetime, Number(maxFecth), Number(minFecth))
+      let fetchedJourneys = searchJourneys(fromStation, toStation, datetime, Number(maxFecth), Number(minFecth))
+      console.log(fetchedJourneys)
     } catch(err) {
       console.log(err)
     }
-    console.log(fetchedJourneys)
   }
 
   return (
@@ -62,7 +60,7 @@ const SearchForm = (): ReactElement => {
         keyboardType="numeric"
       />
 
-      <CustomButton title="Franck" pressFunction={onSearchJourneys} />
+      <CustomButton title="Franck" pressFunction={onPressSearch} />
     </View>
   )
 }
