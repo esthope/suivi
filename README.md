@@ -15,4 +15,5 @@ vérifier si c'est une bonne application hermes
 - http://192.168.203.191:8081/json/list
 si vide : npm run start --localhost ou -tunnel
 
-# avec VSC
+# fin
+nettoyer cmdr
