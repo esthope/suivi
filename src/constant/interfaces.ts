@@ -1,22 +1,12 @@
 // namespace BigBrother 
 export interface Place {
-	embedded_type: string,
-	id: string,
-	name: string
+	place_id: string,
+	name: string,
+	embedded_type: "administrative_region" | "stop_point"| "stop_area" | never,
+	longitude?: string,
+	latitude?: string,
 }
 
-/**
- * id: Follow's ID : "BIWY" + line_code + selected departure station number + selected arrival station number + departure time
- * linked_id: ID rempli si ce trajet est suivi dans la direction opposé (back/forth)
- * type: ONE = suivi sur un horaire seulement, DAYS = horaire suivi sur un plusieurs jours toutes les semaines, STALK = suivi à chaque trajet effectué
- * selected_from: gare de départ choisie
- * selected_to: gare d'arrivée choisie
- * line_code: code de la ligne
- * datetime: horaire du prochain trajet
- * alert_days: si type 'DAYS', renseigne les jours d'alerte
- * alert_types: type d'alerte à utiliser
- * expire: si type 'ONE', date d'expiration pour supprimer le suivi automatiquement [30 min] après l'arrivée en gare
- */
 export interface BigBrother {
 	id: string, // BIWY K44 87313874:Train 87286005:Train HHmm
 	linked_id?: string, // BIWY K44 87313874:Train 87286005:Train HHmm
@@ -31,30 +21,51 @@ export interface BigBrother {
 	// disruption_only: true | false
 }
 
-export interface JourneyHeader {
-	id: string, // JOU K44 87313874:Train 87286005:Train HHmm
-	seleted_from: string,
-	seleted_to: string,
-	// startStation: string,
-	// terminus: string,
-	line_code: string,
-	datetime_departure: string,
-	datetime_arrival: string,
-	journey_status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
-	duration: number,
-	formatted_duration: string, 
-	bbIsWatchingYou: [true | false]
-}
-
-export interface Journey extends JourneyHeader {
-	stops_and_datetimes: Array<object>,
-	disturbtions: Array<object>,
-}
-
 export interface Line {
 	line_code: string,
 	startStation: string,
 	terminus: string,
 	stops_and_datetimes: Array<object>,
 	// ?duration: number, // où récupérer
+}
+
+// étapes intermédiaires
+export interface Waypoints {
+	duration: number, // si 0 = trajet zone à stop_point
+	line_code: string, // si type != walking
+	direction: string, // si type != walking
+	section_type?: "crow_fly" | "public_transport" | "transfer" | "waiting",
+	transfer_type?: "walking" | never, // si type transfer
+	commercial_mode: string, // si type != walking
+	first_place?: Place, // 1er section : selection utilisateur, si type != waiting
+	departure_datetime: string, 
+	departure_delayed?: string, // qd type != walking | transfer
+	last_place?: Place, 
+	arrival_datetime: string, 
+	arrival_delayed?: string, // qd type != walking | transfer
+	stops?: [{ // si type != walking
+		stop_id: string,
+		name: string,
+		departure_datetime: string, 
+		departure_delayed?: string, // qd type != walking | transfer
+		arrival_datetime: string, 
+		arrival_delayed?: string, // qd type != walking | transfer
+		longitude?: string,
+		latitude?: string
+	}]
+}
+
+// itinerary
+export interface Journey {
+	journey_id: string, // JOU K44 87313874:Train 87286005:Train HHmm
+	duration: number,
+	transfer: true | false, // si > 1
+	departure_datetime: string, 
+	arrival_datetime: string,
+	status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
+	seleted_from: string,
+	seleted_to: string,
+	disturbtions: Array<object>,
+	waypoints: Waypoints | Array<Waypoints>,
+	bbIsWatchingYou: [true | false]
 }
