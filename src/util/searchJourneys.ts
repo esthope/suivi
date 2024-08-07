@@ -1,86 +1,92 @@
-*import {getJourneys, getAreaDirections} from 'service/journey';
-import {Journey} from 'constant/interfaces'
+import {getJourneys, getDirections} from 'service/journey';
+import {Journey, Waypoint} from 'constant/interfaces'
+import {treatWaypoints, treatStops} from 'util/sectionTreatment'
 
-let fetchedJourneys: Array<Journey>,
-    journey: Journey;
+let journey: Journey,
+    waypoints: Waypoint | Waypoint[],
+    journeys: Journey[];
 
 const searchJourneys = async (
-    fromPlace: string,
-    toPlace: string,
+    origin: string,
+    destination: string,
     datetime?: string,
     maxFecth?: number,
     minFecth?: number
-): Promise<Journey[]> =>
-{
-    let station=fromPlace,
-        direction='FROM';
-
-    if (toPlace) {
-      station = toPlace;
-      direction = 'TO';
-    }
-
+): Promise<{journeys: Journey[], waypoints: Waypoint | Waypoint[]}> => {
     debugger
-	
-    if (fromPlace && toPlace) {
-        await getJourneys(fromPlace, toPlace, datetime, Number(maxFecth), Number(minFecth))
+    if (origin && destination) {
+        await getJourneys(origin, destination, datetime, Number(maxFecth), Number(minFecth))
         .then((res) => {
-    
+          	console.log('JOUR !', res.request.responseURL)
         	const {data} = res;
 
-            // header informations
-            journey.seleted_from = fromPlace;
-            journey.seleted_to = toPlace;
-            journey.disruptions = data.disruptions;
+            // journey
+            journey.seleted_from = origin;
+            journey.seleted_to = destination;
+            journey.disturbtions = data.disturbtions;
 
             data.journeys.map((item:any, index:number) => {
-                journey.id = 'test' + index;
+                journey.journey_id = 'test' + index;
                 journey.duration = item.duration;
                 journey.transfer = (item.nb_transfers > 1) ? true : false;
                 journey.departure_datetime = item.departure_date_time;
                 journey.arrival_datetime = item.arrival_date_time;
                 journey.status = item.status;
-                journey.waypoints = (item.nb_transfers > 1) ? item.sections[0] : item.sections;
-                // journey.waypoints = (item?.sections && item.sections.length > 1) ? item.sections[0] : item.sections;
                 journey.bbIsWatchingYou = false;
+                journeys.push(journey)
 
-                if (Array.isArray(journey.waypoints))
+                // (item?.sections && item.sections.length > 1)
+                if (item.nb_transfers > 1)
                 {
-                    console.log('plus 1 section')
+                    // vérifier si retourne toute la table ou la première itération
+                    // ne pas vider la table car contiendra tous les trajets (waypoints) de tous les voyage (journey)
+                    waypoints = item.sections.map((section:any): Waypoint | Waypoint[] => {
+                        return treatWaypoints(section, journey.journey_id); // waypoints.push                       
+                    })
                 }
                 else
                 {
-                    
+                    waypoints = treatWaypoints(item.sections[0], journey.journey_id);
                 }
-
-                // journey.sections[0].
             })
 
-
-          	console.log('JOUR !', res.request.responseURL)
-          	fetchedJourneys = data.journeys;
+            treatStops(waypoints);
+          	journeys = data.journeys;
         })
         .catch((err) => {
           console.log('noooon ', err.code, err.request.responseURL)
         })
 
-    } else if (station) {
-        await getAreaDirections(station, direction, datetime)
+    } else if (origin || destination) {
+        let station=origin,
+            direction='FROM';
+
+        if (destination) {
+          station = destination;
+          direction = 'TO';
+        }
+
+        // [!] vérifier pour l'entité
+        await getDirections(station, direction, datetime)
         .then((res) => {
           	const {data} = res,
                 sCode = data.code,
                 aJourneys = (direction == 'FROM') ? data?.departures : data?.arrivals,
-                aDisruptions = data.disruptions;
+                adisturbtions = data.disturbtions;
 
           	console.log('DIR : ', res.request.responseURL);
-          	fetchedJourneys = data.departures ?? data.arrivals;
+          	journeys = data.departures ?? data.arrivals;
         })
         .catch((err) => {
           	console.log('noooon ', err.code, err.request.responseURL);
         })
     }
 
-    return fetchedJourneys;
+    // finally
+    return {
+        journeys: journeys, 
+        waypoints: waypoints
+    }
 }
 
 export default searchJourneys;

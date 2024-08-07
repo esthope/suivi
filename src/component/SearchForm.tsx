@@ -1,23 +1,21 @@
 import {useState, useEffect, ReactElement} from 'react';
 import {View, Input, Box, Select, VStack, Stack, Text, Center} from "native-base";
-import {Journey} from 'constant/interfaces'
-import DropdownInput from 'component/DropdownInput';
+import DropdownPlaceInput from 'component/DropdownPlaceInput';
 import CustomButton from 'component/CustomButton';
 import searchJourneys from 'util/searchJourneys';
 
 const SearchForm = (): ReactElement => {
-  const [places, setPlaces] = useState([]),
-        [datetime, setDatetime] = useState('20240729T152000'),
+  const [datetime, setDatetime] = useState('20240729T152000'),
         [minFecth, setMinFecth] = useState('1'),
         [maxFecth, setMaxFecth] = useState('7'),
-        [fromStation, setFromStation] = useState(''),
-        [toStation, setToStation] = useState('');
+        [origin, setOrigin] = useState(''),
+        [destination, setDestination] = useState('');
 
   const onPressSearch = async (): Promise<void> => {
     // 87313874 87286005
     try {
-      let fetchedJourneys = searchJourneys(fromStation, toStation, datetime, Number(maxFecth), Number(minFecth))
-      console.log(fetchedJourneys)
+      const {waypoints, journeys} = await searchJourneys(origin, destination, datetime, Number(maxFecth), Number(minFecth))
+      console.log(journeys)
     } catch(err) {
       console.log(err)
     }
@@ -25,12 +23,12 @@ const SearchForm = (): ReactElement => {
 
   return (
   <View>
-    <DropdownInput
-      onSetStation={setFromStation}
+    <DropdownPlaceInput
+      onSetStation={setOrigin}
       placeholder="Départ" />
 
-    <DropdownInput
-      onSetStation={setToStation}
+    <DropdownPlaceInput
+      onSetStation={setDestination}
       placeholder="Arrivée" />
 
     <Input

@@ -1,7 +1,7 @@
 import {useState, useEffect, ReactElement} from 'react';
 import {View, Box, Select, Input, VStack, Stack, Text, Center} from "native-base";
-import DropdownInput from 'component/DropdownInput';
-import {fetchJourneys, fetchAreaDirections} from 'service/journey';
+import DropdownPlaceInput from 'component/DropdownPlaceInput';
+import {getJourneys, getAreaDirections} from 'service/journey';
 
 const CustomComponent = (): ReactElement => {
   const [isLoaded, setIsLoaded] = useState(false),

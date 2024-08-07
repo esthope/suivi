@@ -11,14 +11,10 @@ export function getJourneys(from: string, to: string, datetime?: string, maxFect
 	return axiosInstance.get(`/journeys?from=${from}&to=${to}&datetime=${datetime}&min_nb_journeys=${minFecth}&max_nb_journeys=${maxFecth}`)
 }
 
-export function getPointDirections(stop_point: string, dir_type: string, datetime?: string):Promise<AxiosResponse<any, any>> {
-	const direction = (dir_type == 'FROM') ? 'departures' : 'arrivals';
+// [!] vérifier pour l'entité
+export function getDirections(stopID: string, dir_type: string, datetime?: string):Promise<AxiosResponse<any, any>> {
+	const direction = (dir_type == 'FROM') ? 'departures' : 'arrivals',
+		  entity = (stopID.includes('point')) ? 'stop_points' : 'stop_area';
 	datetime = datetime ?? '20240724T165000';
-	return axiosInstance.get(`/stop_points/${stop_point}/${direction}?from_datetime=${datetime}`);
-}
-
-export function getAreaDirections(stop_area: string, dir_type: string, datetime?: string): Promise<AxiosResponse<any, any>> {
-	const direction = (dir_type == 'FROM') ? 'departures' : 'arrivals';
-	datetime = datetime ?? '20240724T165000';
-	return axiosInstance.get(`/stop_areas/${stop_area}/${direction}?from_datetime=${datetime}`);
+	return axiosInstance.get(`/${entity}/${stopID}/${direction}?from_datetime=${datetime}`);
 }

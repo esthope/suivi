@@ -29,30 +29,33 @@ export interface Line {
 	// ?duration: number, // où récupérer
 }
 
-// étapes intermédiaires
-export interface Waypoints {
+export interface Stop {
+	stop_id: string,
+	name: string,
+	departure_datetime: string, 
+	departure_delayed?: string, // qd type != walking | transfer
+	arrival_datetime: string, 
+	arrival_delayed?: string, // qd type != walking | transfer
+	longitude?: string,
+	latitude?: string
+}
+
+// étape intermédiaire du trajet
+export interface Waypoint {
+	journey_id: string,
 	duration: number, // si 0 = trajet zone à stop_point
 	line_code: string, // si type != walking
 	direction: string, // si type != walking
 	section_type?: "crow_fly" | "public_transport" | "transfer" | "waiting",
 	transfer_type?: "walking" | never, // si type transfer
 	commercial_mode: string, // si type != walking
-	first_place?: Place, // 1er section : selection utilisateur, si type != waiting
+	first_place?: Place, // 1er section : selection utilisateur, identifier type point:Coach ou admin..., si type != waiting
 	departure_datetime: string, 
 	departure_delayed?: string, // qd type != walking | transfer
 	last_place?: Place, 
 	arrival_datetime: string, 
 	arrival_delayed?: string, // qd type != walking | transfer
-	stops?: [{ // si type != walking
-		stop_id: string,
-		name: string,
-		departure_datetime: string, 
-		departure_delayed?: string, // qd type != walking | transfer
-		arrival_datetime: string, 
-		arrival_delayed?: string, // qd type != walking | transfer
-		longitude?: string,
-		latitude?: string
-	}]
+	stops?: any[] | Stop[] // si type != walking
 }
 
 // itinerary
@@ -66,6 +69,6 @@ export interface Journey {
 	seleted_from: string,
 	seleted_to: string,
 	disturbtions: Array<object>,
-	waypoints: Waypoints | Array<Waypoints>,
-	bbIsWatchingYou: [true | false]
+	// waypoints: Waypoints | Array<Waypoints>, ? plutôt par ID
+	bbIsWatchingYou: true | false
 }
