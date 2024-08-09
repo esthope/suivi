@@ -8,7 +8,7 @@ const SearchForm = (): ReactElement => {
   const [datetime, setDatetime] = useState('20240729T152000'),
         [minFecth, setMinFecth] = useState('1'),
         [maxFecth, setMaxFecth] = useState('7'),
-        [origin, setOrigin] = useState(''),
+        [origin, setOrigin] = useState({}),
         [destination, setDestination] = useState('');
 
   const onPressSearch = async (): Promise<void> => {

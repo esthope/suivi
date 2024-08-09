@@ -6,7 +6,7 @@ import {getPlaces} from 'service/station';
 import {Place} from 'constant/interfaces';
 
 const DropdownPlaceInput = ({ onSetStation, placeholder }: { onSetStation:Function, placeholder:string }): ReactElement => {
-  const [station, setStation] = useState<string>(),
+  const [station, setStation] = useState<object>(),
         [places, setPlaces] = useState<Place[]>(),
 				[displayList, setDisplayList] = useState<boolean>(false);
 
@@ -16,7 +16,7 @@ const DropdownPlaceInput = ({ onSetStation, placeholder }: { onSetStation:Functi
 
 			if (!value) {
 				console.log('vide');
-				onSetStation('');
+				onSetStation({});
 				return;
 			}
 
@@ -44,9 +44,9 @@ const DropdownPlaceInput = ({ onSetStation, placeholder }: { onSetStation:Functi
 		searchPlacesForSel(value);
   }
 
-  const selectStation = (item:any) => {
+  const selectPlace = (item:any) => {
 		setStation(item.name);
-		onSetStation(item.id);
+		onSetStation(item);
 		setDisplayList(false);
   }
 
@@ -55,22 +55,22 @@ const DropdownPlaceInput = ({ onSetStation, placeholder }: { onSetStation:Functi
 	    <Input
 	    	size='md'
         	style={style.input}
-	        value={station}
+	        value={station.name}
           	onChangeText={(value)=>{onChangeText(value)}}
 	        placeholder={placeholder}
 	        // rightElement={(<Icon/>)}
 	    />
 	    {displayList && <FlatList
 				data={places}
-				renderItem={({item}:any)=>{
+				renderItem={({selectedPlace}:any)=>{
 					return(<Pressable 
-						key={item.id}
-						onPress={()=>selectStation(item)}
+						key={selectedPlace.id}
+						onPress={()=>selectPlace(selectedPlace)}
 						borderWidth=".5"
 						borderColor="coolGray.300"
 						p={1.5}
 						bg="coolGray.100">
-						<Text>{item.name}</Text>
+						<Text>{selectedPlace.name}</Text>
 					</Pressable>)}}
 			/>}
     </VStack>

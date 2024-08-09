@@ -1,4 +1,3 @@
-// namespace BigBrother 
 export interface Place {
 	place_id: string,
 	name: string,
@@ -10,9 +9,12 @@ export interface Place {
 export interface BigBrother {
 	id: string, // BIWY K44 87313874:Train 87286005:Train HHmm
 	linked_id?: string, // BIWY K44 87313874:Train 87286005:Train HHmm
+	journey_url: string,
 	type: "ONE" | "DAYS" | "STALK",
-	seleted_from: string,
-	seleted_to: string,
+	from_station_ID: string,
+	from_station_label: string,
+	to_station_ID: string,
+	to_station_label: string,
 	line_code: string,
 	datetime: Date, // ?format
 	alert_days?: ['mon' | 'tue' | 'wen' | 'thu' | 'fri' | 'sat' | 'sun'] | [],
@@ -25,7 +27,7 @@ export interface Line {
 	line_code: string,
 	startStation: string,
 	terminus: string,
-	stops_and_datetimes: Array<object>,
+	stops_and_datetimes: object[],
 	// ?duration: number, // où récupérer
 }
 
@@ -42,7 +44,7 @@ export interface Stop {
 
 // étape intermédiaire du trajet
 export interface Waypoint {
-	journey_id: string,
+	url: string, // retirer/changer min_nb_journeys, datetime, count lors|dans de l'enregistrement des crières (ou d'après eux) de suivi (fractionner pour évo eventuelles)
 	duration: number, // si 0 = trajet zone à stop_point
 	line_code: string, // si type != walking
 	direction: string, // si type != walking
@@ -60,15 +62,20 @@ export interface Waypoint {
 
 // itinerary
 export interface Journey {
-	journey_id: string, // JOU K44 87313874:Train 87286005:Train HHmm
+	journey_url: string, // JOU 87313874:Train 87286005:Train HHmm
 	duration: number,
-	transfer: true | false, // si > 1
+	transfer: number,
+	from_station_ID: string,
+	from_station_label: string,
+	to_station_ID: string,
+	to_station_label: string,
 	departure_datetime: string, 
 	arrival_datetime: string,
+	line_code ?: string, // si tranfer == 1
 	status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
-	seleted_from: string,
-	seleted_to: string,
-	disturbtions: Array<object>,
-	// waypoints: Waypoints | Array<Waypoints>, ? plutôt par ID
+	disturbtions: object[],
+	// waypoints: Waypoints | Waypoints[], ? plutôt par ID
 	bbIsWatchingYou: true | false
 }
+
+type WayTypes = Waypoint | Waypoint[];
