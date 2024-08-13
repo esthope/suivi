@@ -1,12 +1,12 @@
 import {Waypoint, Stop, WayTypes} from 'constant/interfaces';
 
-let way: Waypoint = {},
-    currStop: Stop = {};
+let way: Waypoint,
+    currStop: Stop;
 
 // overwrite initial stop points
 export const overwriteStops = (stops: Stop[]): void => { 
     stops?.forEach((stop: any, index: number) => {
-        currStop = {}; // ? plante
+        // currStop = {}; // ? plante
         currStop.stop_id = stop.stop_point.id;
         currStop.name = stop.stop_point.name;
         currStop.departure_datetime = stop?.departure_date_time ?? stop?.base_departure_date_time;
@@ -45,4 +45,12 @@ export const treatStops = (waypoints: WayTypes): void => {
     waypoints.forEach((item: Waypoint): void => {
         overwriteStops(item.stops)
     })
+}
+
+export const getJourneyDisruption = (): void => {
+    /*
+    journey url
+    boucle dans résultat recherche
+    unique dans suivi
+    */
 }

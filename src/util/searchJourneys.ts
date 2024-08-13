@@ -1,5 +1,5 @@
 import {getJourneys, getDirections} from 'service/journey';
-import {Journey, Waypoint, WayTypes} from 'constant/interfaces'
+import {Journey, WayTypes} from 'constant/interfaces'
 import {treatWaypoints, treatStops, overwriteStops} from 'util/dataTreatment'
 
 const searchJourneys = async (
@@ -12,7 +12,7 @@ const searchJourneys = async (
     minFecth?: number
 ): Promise<{journeys: Journey[], waypoints: WayTypes}> => {
 
-    let journey: Journey = {},
+    let journey: Journey,
         journeys: Journey[] = [],
         sections: any[] = [],
         first_section: any = {},
@@ -24,17 +24,16 @@ const searchJourneys = async (
     if (from_station_ID && to_station_ID) {
         await getJourneys(from_station_ID, to_station_ID, datetime, Number(maxFecth), Number(minFecth))
         .then((res) => {
-            console.log('JOUR !')
+            console.log('JOUR')
 
             const {data} = res;
-
             journey.disruptions = data.disruptions;
-            journeys = data.journeys.map((item:any, index:number) => {
+            journeys = data.journeys.map((item: any) => {
 
                 debugger
 
                 // url as ID for the current journey
-                const {href} = item.links.filter((link: string): string => link.rel = 'this_journey');
+                const {href} = item.links.filter((link: any): string => link.rel = 'this_journey');
                 urlParamsStartAt = href.indexOf('?');
                 journey.url = href.slice(urlParamsStartAt)
 
@@ -44,7 +43,7 @@ const searchJourneys = async (
                 last_section = item.sections.at(-1);
 
                 // add filtered sections and the journey url
-                item.sections = item.sections.filter((section) => section.type !== 'crow_fly');
+                item.sections = item.sections.filter((section: any) => section.type !== 'crow_fly');
                 // sections.push(journey.url);
                 first_section.journey_ref = journey.url; // ? maj
                 sections.push(item.sections);
@@ -52,10 +51,14 @@ const searchJourneys = async (
                 // general informations
                 journey.duration = item.duration;
                 journey.transfer = item.nb_transfers;
-                journey.from_station_ID = from_station_ID // first_section.from.id;
-                journey.to_station_ID = to_station_ID // last_section.to.id;
-                journey.from_station_label = 
-                journey.to_station_label = 
+
+                // [! START : si après la suppression des crow_fly : données des stop_points
+                journey.from_station_ID = from_station_ID; // ? first_section
+                journey.from_station_label = from_station_label; // first_section.from.name 
+                journey.to_station_ID = to_station_ID; // ? last_section
+                journey.to_station_label = to_station_label;
+                // END !]
+
                 journey.departure_datetime = item?.base_departure_date_time ?? item?.departure_date_time;
                 journey.arrival_datetime = item?.base_arrival_date_time ?? item?.arrival_date_time;
                 journey.line_code = (item.nb_transfers == 0) ? first_section?.display_informations?.code : undefined ;
@@ -68,7 +71,7 @@ const searchJourneys = async (
             debugger
 
             // Treat the structure of all sections
-            waypoints = sections.map((item: any): WayTypes => {
+            waypoints = sections.map((item: any): Way => {
                 // Means it's the first section of a journey
                 if (item.hasOwnProperty('journey_ref')) {
                     // Donnera l'url à toutes les sections suivantes jusqu'à la prochaine journey_ref
@@ -76,7 +79,7 @@ const searchJourneys = async (
                 }
 
                 // treatment with the journey url
-                return treatWaypoints(section, currJourneyUrl);
+                return treatWaypoints(item, currJourneyUrl);
             })
 
             treatStops(waypoints);

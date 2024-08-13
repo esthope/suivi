@@ -7,8 +7,11 @@ import axiosInstance from '../getInstance.js';
 export function getJourneys(from: string, to: string, datetime?: string, maxFecth?: number, minFecth?: number): Promise<AxiosResponse<any, any>> {
 	/* stop_point:SNCF:87313874:Train
 		stop_point:SNCF:87286005:Train */
+
+	let freshness = 'base_schedule'; // [!] test pour voir les trajets etc. "service supprimé"
 	datetime = datetime ?? '20240724T165000'
-	return axiosInstance.get(`/journeys?from=${from}&to=${to}&datetime=${datetime}&min_nb_journeys=${minFecth}&max_nb_journeys=${maxFecth}`)
+
+	return axiosInstance.get(`/journeys?from=${from}&to=${to}&datetime=${datetime}&min_nb_journeys=${minFecth}&max_nb_journeys=${maxFecth}&data_freshness=${freshness}`)
 }
 
 // [!] vérifier pour l'entité
