@@ -44,7 +44,7 @@ export interface Stop {
 
 // étape intermédiaire du trajet
 export interface Waypoint {
-	url: string, // retirer/changer min_nb_journeys, datetime, count lors|dans de l'enregistrement des crières (ou d'après eux) de suivi (fractionner pour évo eventuelles)
+	journey_url: string, // retirer/changer min_nb_journeys, datetime, count lors|dans de l'enregistrement des crières (ou d'après eux) de suivi (fractionner pour évo eventuelles)
 	duration: number, // si 0 = trajet zone à stop_point
 	line_code: string, // si type != walking
 	direction: string, // si type != walking
@@ -62,7 +62,7 @@ export interface Waypoint {
 
 // itinerary
 export interface Journey {
-	journey_url: string, // JOU 87313874:Train 87286005:Train HHmm
+	url: string,
 	duration: number,
 	transfer: number,
 	from_station_ID: string,

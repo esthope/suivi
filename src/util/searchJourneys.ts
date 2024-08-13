@@ -18,6 +18,7 @@ const searchJourneys = async (
         first_section: any = {},
         last_section: any = {},
         urlParamsStartAt: string,
+        currJourneyUrl: string,
         waypoints: WayTypes;
 
     if (from_station_ID && to_station_ID) {
@@ -31,20 +32,21 @@ const searchJourneys = async (
             journeys = data.journeys.map((item:any, index:number) => {
 
                 debugger
-                // get general data from sections
-                /* If only one section : both variable reference to the same objet
-                */
-
-                first_section = item.sections.at(0);
-                last_section = item.sections.at(-1);
 
                 // url as ID for the current journey
                 const {href} = item.links.filter((link: string): string => link.rel = 'this_journey');
                 urlParamsStartAt = href.indexOf('?');
                 journey.url = href.slice(urlParamsStartAt)
 
-                // add filtered sections
+                // get general data from sections
+                // If only one section : both variable reference to the same objet
+                first_section = item.sections.at(0);
+                last_section = item.sections.at(-1);
+
+                // add filtered sections and the journey url
                 item.sections = item.sections.filter((section) => section.type !== 'crow_fly');
+                // sections.push(journey.url);
+                first_section.journey_ref = journey.url; // ? maj
                 sections.push(item.sections);
 
                 // general informations
@@ -56,26 +58,31 @@ const searchJourneys = async (
                 journey.to_station_label = 
                 journey.departure_datetime = item?.base_departure_date_time ?? item?.departure_date_time;
                 journey.arrival_datetime = item?.base_arrival_date_time ?? item?.arrival_date_time;
-                journey.line_code = (item.nb_transfers == 0) ? first_section?.display_informations?.code // : undefined ;
+                journey.line_code = (item.nb_transfers == 0) ? first_section?.display_informations?.code : undefined ;
                 journey.status = item.status;
                 journey.bbIsWatchingYou = false;
-
-                /*.map((section:any): WayTypes => {
-                    return treatWaypoints(section, journey.journey_id);
-                })*/
 
                 return journey;
             })
 
-            // treat structure of all sections
-            waypoints = sections.map((item: any) => Waypoint[] {
+            debugger
+
+            // Treat the structure of all sections
+            waypoints = sections.map((item: any): WayTypes => {
+                // Means it's the first section of a journey
+                if (item.hasOwnProperty('journey_ref')) {
+                    // Donnera l'url à toutes les sections suivantes jusqu'à la prochaine journey_ref
+                    currJourneyUrl = item.journey_ref;
+                }
+
+                // treatment with the journey url
+                return treatWaypoints(section, currJourneyUrl);
             })
 
-            debugger
             treatStops(waypoints);
             journeys = data.journeys;
-        })
-        .catch((err) => {
+
+        }).catch((err) => {
             console.log('noooon ', err?.code, err?.request?.responseURL ?? err?.message)
         })
 

@@ -17,8 +17,8 @@ export const overwriteStops = (stops: Stop[]): void => {
     })
 }
 
-export const treatWaypoints = (section: any, journeyID: string): Waypoint => {
-    way.journey_id = journeyID;
+export const treatWaypoints = (section: any, journey_url: string): Waypoint => {
+    way.journey_url = journey_url;
     way.duration = section.duration;
     way.section_type = section.type;
     way.transfer_type = section.transfer_type;
@@ -45,31 +45,4 @@ export const treatStops = (waypoints: WayTypes): void => {
     waypoints.forEach((item: Waypoint): void => {
         overwriteStops(item.stops)
     })
-}
-
-export const generateJourneyID = (): string => {
-
-```
-amiens → chalons
-    amiens : paris
-    paris nord :m: paris est
-    paris : chalons
-
-amiens → chalons
-    amiens : laon
-    :a: laon
-    laon : reims
-    :a: reims
-    reims : chalons
-
-```
-	JOU D87313874:Train T87286005:Train T87286005:Train HHmm
-	→ JOU + D amiens + T paris + T chalons + HHmm
-	→ JOU + D amiens + T laon + T reims + T chalons + HHmm
-
-87581009
-87595009
-87313882
-
-	return `JOU`;
 }
