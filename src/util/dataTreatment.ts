@@ -1,4 +1,4 @@
-import {Waypoint, Stop, WayTypes} from 'constant/interfaces';
+import {Journey, Waypoint, Stop, WayTypes} from 'constant/interfaces';
 
 let way: Waypoint,
     currStop: Stop;
@@ -6,11 +6,11 @@ let way: Waypoint,
 // overwrite initial stop points
 export const overwriteStops = (stops: Stop[]): void => { 
     stops?.forEach((stop: any, index: number) => {
-        // currStop = {}; // ? plante
+        // currStop = {}; // [?] plante
         currStop.stop_id = stop.stop_point.id;
         currStop.name = stop.stop_point.name;
-        currStop.departure_datetime = stop?.departure_date_time ?? stop?.base_departure_date_time;
-        currStop.arrival_datetime = stop?.arrival_date_time ?? stop?.base_arrival_date_time;
+        currStop.departure_datetime = stop?.base_departure_date_time ?? stop?.departure_date_time;
+        currStop.arrival_datetime = stop?.base_arrival_date_time ?? stop?.arrival_date_time;
         currStop.longitude = stop.stop_point.coord.lon;
         currStop.latitude = stop.stop_point.coord.lat;
         stops[index] = currStop;
@@ -18,19 +18,22 @@ export const overwriteStops = (stops: Stop[]): void => {
 }
 
 export const treatWaypoints = (section: any, journey_url: string): Waypoint => {
+    // [?] clear way
     way.journey_url = journey_url;
     way.duration = section.duration;
     way.section_type = section.type;
-    way.transfer_type = section.transfer_type;
-    way.first_place = section.from.id;
-    way.departure_datetime = section?.departure_date_time ?? section?.base_departure_date_time;
-    // way.departure_delayed = disruption.;
-    way.last_place = section.to.id;
-    way.arrival_datetime = section?.arrival_date_time ?? section?.base_arrival_date_time;
-    // way.arrival_delayed = disruption. ;
-    way.stops = section.stop_date_times;
+    way.transfer_type = (section.type !== 'transfer') ? section?.transfer_type : '';
+    way.departure_datetime = section?.base_departure_date_time ?? section.departure_date_time;
+    way.arrival_datetime = section?.base_arrival_date_time ?? section.arrival_date_time;
 
-    if (section.display_informations) 
+    // [?] mettre simplement chemin ?? '' au lieu des conditions ?
+    if (section.type !== 'waiting')
+    {
+        way.first_place = section?.from?.id;
+        way.last_place = section?.to?.id;
+    }
+
+    if (section?.display_informations && /*[?] systématique, nécessaire > */ section.transfer_type !== 'walking')
     {
         let infos = section.display_informations;
         way.line_code = infos.code;
@@ -38,14 +41,99 @@ export const treatWaypoints = (section: any, journey_url: string): Waypoint => {
         way.commercial_mode = infos.name;
     }
 
+    // [?] meilleure condition
+    if (section.transfer_type !== 'walking')
+    {
+        // way.arrival_delayed = disruption.
+        // way.departure_delayed = disruption.
+
+        overwriteStops(sections?.stop_date_times);
+        way.stops = section?.stop_date_times;
+    }
+
     return way;
 }
 
-export const treatStops = (waypoints: WayTypes): void => {
+export const treatJourneys = (data: any, fromStationID: string, toStationID: string): {journeys: Journey[], waypoints: WayTypes} => {
+
+    let journey: Journey,
+        journeys: Journey[] = [],
+        sections: any[] = [],
+        first_section: any = {},
+        last_section: any = {},
+        urlParamsStartAt: string,
+        currJourneyUrl: string,
+        waypoints: WayTypes;
+
+    debugger
+
+    journey.disruptions = data.disruptions;
+    journeys = data.journeys.map((item: any) => {
+
+        // url as ID for the current journey
+        const {href} = item.links.filter((link: any): string => link.rel = 'this_journey');
+        urlParamsStartAt = href.indexOf('?');
+        journey.url = href.slice(urlParamsStartAt)
+
+        // get general data from sections
+        // If only one section : both variable reference to the same objet
+        first_section = item.sections.at(0);
+        last_section = item.sections.at(-1);
+
+        // add filtered sections and the journey url
+        item.sections = item.sections.filter((section: any) => section.type !== 'crow_fly');
+        // sections.push(journey.url);
+        first_section.journey_ref = journey.url; // ? maj
+        sections.push(item.sections);
+
+        // general informations
+        journey.duration = item.duration;
+        journey.transfer = item.nb_transfers;
+
+        // [! START : si après la suppression des crow_fly : données des stop_points
+        journey.from_station_ID = toStationID; // ? first_section
+        // journey.from_station_label = from_station_label; // first_section.from.name 
+        journey.to_station_ID = toStationID; // ? last_section
+        // journey.to_station_label = to_station_label;
+        // END !]
+
+        journey.departure_datetime = item?.base_departure_date_time ?? item?.departure_date_time;
+        journey.arrival_datetime = item?.base_arrival_date_time ?? item?.arrival_date_time;
+        journey.line_code = (item.nb_transfers == 0) ? first_section?.display_informations?.code : undefined ;
+        journey.status = item.status;
+        journey.bbIsWatchingYou = false;
+
+        return journey;
+    })
+
+    debugger
+
+    // Treat the structure of all sections
+    waypoints = sections.map((item: any): WayTypes => {
+        // Means it's the first section of a journey
+        // [!] bien vérifier si l'url est la bonne, comparaison de données
+        if (item.hasOwnProperty('journey_ref')) {
+            // Donnera l'url à toutes les sections suivantes jusqu'à la prochaine journey_ref
+            currJourneyUrl = item.journey_ref;
+        }
+
+        // treatment with the journey url
+        return treatWaypoints(item, currJourneyUrl);
+    })
+
+    // treatStops(waypoints);
+    // finally
+    return {
+        journeys: journeys, 
+        waypoints: waypoints
+    }
+}
+
+/*export const treatStops = (waypoints: WayTypes): void => {
     waypoints.forEach((item: Waypoint): void => {
         overwriteStops(item.stops)
     })
-}
+}*/
 
 export const getJourneyDisruption = (): void => {
     /*

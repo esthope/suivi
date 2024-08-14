@@ -71,8 +71,9 @@ const searchJourneys = async (
             debugger
 
             // Treat the structure of all sections
-            waypoints = sections.map((item: any): Way => {
+            waypoints = sections.map((item: any): WayTypes => {
                 // Means it's the first section of a journey
+                // [!] bien vérifier si l'url est la bonne, comparaison de données
                 if (item.hasOwnProperty('journey_ref')) {
                     // Donnera l'url à toutes les sections suivantes jusqu'à la prochaine journey_ref
                     currJourneyUrl = item.journey_ref;
@@ -82,7 +83,7 @@ const searchJourneys = async (
                 return treatWaypoints(item, currJourneyUrl);
             })
 
-            treatStops(waypoints);
+            // treatStops(waypoints);
             journeys = data.journeys;
 
         }).catch((err) => {

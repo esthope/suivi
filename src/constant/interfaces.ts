@@ -45,12 +45,12 @@ export interface Stop {
 // étape intermédiaire du trajet
 export interface Waypoint {
 	journey_url: string, // retirer/changer min_nb_journeys, datetime, count lors|dans de l'enregistrement des crières (ou d'après eux) de suivi (fractionner pour évo eventuelles)
-	duration: number, // si 0 = trajet zone à stop_point
-	line_code: string, // si type != walking
-	direction: string, // si type != walking
+	duration: number, // si 0 = trajet de zone à stop_point
+	line_code?: string, // si type != walking
+	direction?: string, // si type != walking
 	section_type?: "crow_fly" | "public_transport" | "transfer" | "waiting",
 	transfer_type?: "walking" | never, // si type transfer
-	commercial_mode: string, // si type != walking
+	commercial_mode?: string, // si type != walking
 	first_place?: Place, // 1er section : selection utilisateur, identifier type point:Coach ou admin..., si type != waiting
 	departure_datetime: string, 
 	departure_delayed?: string, // qd type != walking | transfer

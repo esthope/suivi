@@ -1,9 +1,11 @@
 # L'application
-Suivre les trajets de transports en commun de la SNCF (train, TGV, autocar etc.) sur un temps particulier ou de manière journalière.
+Suivre les trajets de transports en commun de la SNCF (train, TGV, autocar etc.) sur une horaire particulière ou de manière journalière.
+
+Utilisation des technologies React Native et Expo Go. Les données sont cherchées depuis l'API Nativia.io.
 
 # Développement
 >>>
-	Etape de développement en cours : requêtage des données pour les fonctionnalités Back-End principales.
+	Etape en cours : requêtage des données pour les fonctionnalités Back-End principales.
 >>>
 
 ## Debug avec chrome, s'assurer : 
@@ -18,7 +20,7 @@ si erreur "open" lors de l'ouverture du debugger
 - https://github.com/jhen0409/react-native-debugger/issues/760
 
 vérifier si c'est une bonne application hermes
-- http://192.168.203.191:8081/json/list
+- http://{serveur:port}/json/list
 si vide : npm run start --localhost ou -tunnel
 
 # Après le développement
