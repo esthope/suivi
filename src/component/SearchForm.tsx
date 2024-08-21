@@ -1,24 +1,26 @@
 import {useState, useEffect, ReactElement} from 'react';
-import {Journey, Waypoint, WayTypes} from 'constant/interfaces';
-import {treatJourneys} from 'util/dataTreatment';
+import {Journey, Waypoint} from 'constant/interfaces';
+import {getJourneys, getDirections} from 'service/journey';
+import {treatJourneyData} from 'util/dataTreatment';
 import {View, Input, Box, Select, VStack, Stack, Text, Center} from "native-base";
 import DropdownPlaceInput from 'component/DropdownPlaceInput';
 import CustomButton from 'component/CustomButton';
 
 const SearchForm = (): ReactElement => {
-  const [datetime, setDatetime] = useState<string>('20240729T152000'), // [!] type custom date
-        [minFecth, setMinFecth] = useState<number>(1),
-        [maxFecth, setMaxFecth] = useState<number>(7),
-        [fromStationID, setFromStationID] = useState<string>(),
-        [toStationID, setToStationID] = useState<string>('')
-        [waypoints, setWaypoints] = useState<Waypoint>(),
-        [journeys, setJourneys] = useState<Journey>(),
+  const // user filters
+        [datetime, setDatetime] = useState<string>('20240729T152000'), // [!] type custom date
+        [minFecth, setMinFecth] = useState<string>('1'),
+        [maxFecth, setMaxFecth] = useState<string>('7'),
+        [fromStationID, setFromStationID] = useState<string>(''),
+        [toStationID, setToStationID] = useState<string>(''),
+        // data treatment
+        [waypoints, setWaypoints] = useState<Waypoint[]>(),
+        [journeys, setJourneys] = useState<Journey[]>()
         ;
 
   const onPressSearch = async (): Promise<void> => {
-    // 87313874 87286005
     try {
-
+      // 87313874 87286005
       if (fromStationID && toStationID)
       {
         await getJourneys(fromStationID, toStationID, datetime, Number(maxFecth), Number(minFecth))
@@ -26,20 +28,21 @@ const SearchForm = (): ReactElement => {
           console.log('JOUR')
 
           const {data} = res;
-          const {treatedJourneys, treatedwaypoints}: Journeys[] = treatJourneys(data, fromStationID, toStationID);
-          setJourneys(treatedJourneys);
+          const {journeysData, waypointsData} = treatJourneyData(data, fromStationID, toStationID);
+          setJourneys(journeysData);
+          setWaypoints(waypointsData);
 
         }).catch((err) => {
             console.log('!JOUR', err?.code, err?.request?.responseURL ?? err?.message)
         })
       }
-      else if (from_station_ID || to_station_ID)
+      else if (fromStationID || toStationID)
       {
-        let station=from_station_ID,
+        let station=fromStationID,
             direction='FROM';
 
-        if (to_station_ID) {
-          station = to_station_ID;
+        if (toStationID) {
+          station = toStationID;
           direction = 'TO';
         }
 
@@ -53,7 +56,7 @@ const SearchForm = (): ReactElement => {
 
             console.log('DIR : ', res.request.responseURL);
         })
-        .catch((err) => {
+        .catch((err: any) => {
             console.log('!DIR', err.code, err.request.responseURL);
         })
       }
@@ -83,6 +86,7 @@ const SearchForm = (): ReactElement => {
     <Input
       mb={2}
       type='text'
+      // inputMode='numeric'
       value={minFecth}
       onChangeText={setMinFecth}
       placeholder="Min"
@@ -92,10 +96,11 @@ const SearchForm = (): ReactElement => {
     <Input
       mb={5}
       type='text'
+      inputMode='numeric'
       value={maxFecth}
       onChangeText={setMaxFecth}
       placeholder="Max"
-      keyboardType="numeric"
+      // keyboardType="numeric"
     />
 
     <CustomButton title="Franck" pressFunction={onPressSearch} />

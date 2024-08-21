@@ -73,7 +73,7 @@ export interface Journey {
 	arrival_datetime: string,
 	line_code ?: string, // si tranfer == 1
 	status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
-	disruptions: object[],
+	disruptions?: object[],
 	// waypoints: Waypoints | Waypoints[], ? plutôt par ID
 	bbIsWatchingYou: true | false
 }

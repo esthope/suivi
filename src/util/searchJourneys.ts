@@ -1,6 +1,6 @@
 import {getJourneys, getDirections} from 'service/journey';
 import {Journey, WayTypes} from 'constant/interfaces'
-import {treatWaypoints, treatStops, overwriteStops} from 'util/dataTreatment'
+import {treatWaypoints, overwriteStops} from 'util/dataTreatment'
 
 const searchJourneys = async (
     from_station_ID: string,
