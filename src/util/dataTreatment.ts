@@ -57,24 +57,25 @@ export const treatWaypoint = (section: any, journey_url: string): Waypoint => {
 
 export const treatJourneyData = (data: any, fromStationID: string, toStationID: string): {journeysData: Journey[], waypointsData: Waypoint[]} => {
 
-    let journey: Journey,
+    let journey: Partial<Journey> = {},
         journeys: Journey[] = [],
         waypoints: Waypoint[],
         sections: any[] = [],
         first_section: any = {},
         last_section: any = {},
-        urlParamsStartAt: string,
+        urlParamsStartAt: any,
         currJourneyUrl: string;
 
     debugger
 
     // journey = {disruptions: data.disruptions};
     journey.disruptions = data.disruptions;
-    journeys = data.journeys.map((item: any): Journey => {
+    journeys = data.journeys.map((item: any): Partial<Journey> => {
+        
         // url as ID for the current journey
         const {href} = item.links.filter((link: any): string => link.rel = 'this_journey');
         urlParamsStartAt = href.indexOf('?');
-        journey.url = href.slice(urlParamsStartAt)
+        journey.url = href.slice(urlParamsStartAt);
         
         // get general data from sections
         // If only one section : both variable reference to the same objet
@@ -105,7 +106,6 @@ export const treatJourneyData = (data: any, fromStationID: string, toStationID: 
         journey.bbIsWatchingYou = false;
         
         return journey;
-        
     })
 
     debugger

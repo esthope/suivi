@@ -1,6 +1,6 @@
 import {getJourneys, getDirections} from 'service/journey';
-import {Journey, WayTypes} from 'constant/interfaces'
-import {treatWaypoints, overwriteStops} from 'util/dataTreatment'
+import {Journey, WayTypes, Waypoint} from 'constant/interfaces'
+import {treatWaypoint} from 'util/dataTreatment'
 
 const searchJourneys = async (
     from_station_ID: string,
@@ -71,7 +71,7 @@ const searchJourneys = async (
             debugger
 
             // Treat the structure of all sections
-            waypoints = sections.map((item: any): WayTypes => {
+            waypoints = sections.map((item: any): Waypoint => {
                 // Means it's the first section of a journey
                 // [!] bien vérifier si l'url est la bonne, comparaison de données
                 if (item.hasOwnProperty('journey_ref')) {
@@ -80,7 +80,7 @@ const searchJourneys = async (
                 }
 
                 // treatment with the journey url
-                return treatWaypoints(item, currJourneyUrl);
+                return treatWaypoint(item, currJourneyUrl);
             })
 
             // treatStops(waypoints);

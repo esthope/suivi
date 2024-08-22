@@ -1,9 +1,29 @@
+type Base = {
+	from_station_ID: string,
+	from_station_label: string,
+	to_station_ID: string,
+	to_station_label: string,
+	departure_datetime: string, 
+	arrival_datetime: string,
+	line_code ?: string, // JOUR : si tranfer == 1
+	status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
+	disruptions?: object[] // [!] ?disruptionsID : gestion des perturbations
+}
+
 export interface Place {
 	place_id: string,
 	name: string,
 	embedded_type: "administrative_region" | "stop_point"| "stop_area" | never,
 	longitude?: string,
 	latitude?: string,
+}
+
+export interface Line {
+	line_code: string,
+	startStation: string,
+	terminus: string,
+	stops_and_datetimes: object[],
+	// ?duration: number, // où récupérer
 }
 
 export interface BigBrother {
@@ -21,14 +41,6 @@ export interface BigBrother {
 	alert_types: ['RING' | 'VIBR' | 'DISRUPTION_ONLY'] | [],
 	expire?: Date, // .datetime + 30min
 	// disruption_only: true | false
-}
-
-export interface Line {
-	line_code: string,
-	startStation: string,
-	terminus: string,
-	stops_and_datetimes: object[],
-	// ?duration: number, // où récupérer
 }
 
 export interface Stop {
@@ -61,21 +73,14 @@ export interface Waypoint {
 }
 
 // itinerary
-export interface Journey {
+export interface Journey extends Base {
 	url: string,
 	duration: number,
 	transfer: number,
-	from_station_ID: string,
-	from_station_label: string,
-	to_station_ID: string,
-	to_station_label: string,
-	departure_datetime: string, 
-	arrival_datetime: string,
-	line_code ?: string, // si tranfer == 1
-	status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
-	disruptions?: object[],
 	// waypoints: Waypoints | Waypoints[], ? plutôt par ID
 	bbIsWatchingYou: true | false
 }
+
+export interface Next extends Base {}
 
 export type WayTypes = Waypoint[] | Waypoint;
