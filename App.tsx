@@ -1,4 +1,3 @@
-import {View} from "native-base";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SearchForm from "component/SearchForm";
 import {ScreenOptions} from 'constant/BaseStyle';

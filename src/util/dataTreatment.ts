@@ -1,29 +1,35 @@
 import {Journey, Waypoint, Stop, WayTypes} from 'constant/interfaces';
 
-let way: Waypoint,
-    currStop: Stop;
-
 // overwrite initial stop points
 export const overwriteStops = (stops: Stop[]): void => { 
+    let currStop: Stop;
+
     stops?.forEach((stop: any, index: number) => {
-        currStop.stop_id = stop.stop_point.id;
-        currStop.name = stop.stop_point.name;
-        currStop.departure_datetime = stop?.base_departure_date_time ?? stop?.departure_date_time ?? '';
-        // departure_delayed
-        currStop.arrival_datetime = stop?.base_arrival_date_time ?? stop?.arrival_date_time ?? '';
-        // arrival_delayed
-        currStop.longitude = stop.stop_point.coord.lon ?? '';
-        currStop.latitude = stop.stop_point.coord.lat ?? '';
+
+        currStop = {
+            stop_id: stop?.stop_point.id,
+            name: stop?.stop_point.name,
+            departure_datetime: stop?.base_departure_date_time ?? stop?.departure_date_time ?? '',
+            // departure_delayed
+            arrival_datetime: stop?.base_arrival_date_time ?? stop?.arrival_date_time ?? '',
+            // arrival_delayed
+            longitude: stop?.stop_point?.coord.lon ?? '',
+            latitude: stop?.stop_point?.coord.lat ?? ''
+        }
+
         stops[index] = currStop;
     })
 }
 
 export const treatWaypoint = (section: any, journey_url: string): Waypoint => {
-    // [?] clear way
+
+    // clear way
+    let way: Partial<Waypoint> = {};
+
     way.journey_url = journey_url;
     way.duration = section.duration;
     way.section_type = section.type;
-    way.transfer_type = (section.type !== 'transfer') ? section?.transfer_type : '';
+    way.transfer_type = (section.type === 'transfer') ? section?.transfer_type : '';
     way.departure_datetime = section?.base_departure_date_time ?? section.departure_date_time;
     way.arrival_datetime = section?.base_arrival_date_time ?? section.arrival_date_time;
 
@@ -34,16 +40,16 @@ export const treatWaypoint = (section: any, journey_url: string): Waypoint => {
         way.last_place = section?.to?.id;
     }
 
-    if (section?.display_informations && /*[?] systématique, nécessaire > */ section.transfer_type !== 'walking')
+    if (section?.display_informations && /*[?] systématique, nécessaire > */ section?.transfer_type !== 'walking')
     {
         let infos = section.display_informations;
         way.line_code = infos.code;
         way.direction = infos.direction;
-        way.commercial_mode = infos.name;
+        way.commercial_mode = infos.commercial_mode // ? name;
     }
 
     // [?] meilleure condition
-    if (section.transfer_type !== 'walking')
+    if (section?.transfer_type !== 'walking')
     {
         // way.arrival_delayed = disruption.
         // way.departure_delayed = disruption.
@@ -66,37 +72,38 @@ export const treatJourneyData = (data: any, fromStationID: string, toStationID: 
         urlParamsStartAt: any,
         currJourneyUrl: string;
 
-    debugger
-
-    // journey = {disruptions: data.disruptions};
     journey.disruptions = data.disruptions;
-    journeys = data.journeys.map((item: any): Partial<Journey> => {
-        
+    data.journeys.forEach((item: any): Partial<Journey> => {
+
+        let journey: Partial<Journey> = {};
+
         // url as ID for the current journey
-        const {href} = item.links.filter((link: any): string => link.rel = 'this_journey');
-        urlParamsStartAt = href.indexOf('?');
-        journey.url = href.slice(urlParamsStartAt);
-        
-        // get general data from sections
+        const {href} = item.links.find((link: any): string => link.rel === 'same_journey_schedules');
+        let decodedUri = decodeURIComponent(href);
+        urlParamsStartAt = decodedUri.indexOf('?');
+        journey.url = decodedUri.slice(urlParamsStartAt);
+
+        // add filtered sections and the journey url
+        item.sections = item.sections.filter((section: any) => section.type !== 'crow_fly');
+
+        // get general data from section
         // If only one section : both variable reference to the same objet
         first_section = item.sections.at(0);
         last_section = item.sections.at(-1);
 
-        // add filtered sections and the journey url
-        item.sections = item.sections.filter((section: any) => section.type !== 'crow_fly');
         // sections.push(journey.url);
         first_section.journey_ref = journey.url; // ? maj
-        sections.push(item.sections);
+        sections.push(...item.sections);
         
         // general informations
         journey.duration = item.duration;
         journey.transfer = item.nb_transfers;
         
         // [! START : si après la suppression des crow_fly : données des stop_points
-        journey.from_station_ID = fromStationID; // ? first_section
-        // journey.from_station_label = from_station_label; // first_section.from.name 
-        journey.to_station_ID = toStationID; // ? last_section
-        // journey.to_station_label = to_station_label;
+        journey.from_station_ID = fromStationID; // ? first_section.from.id
+        journey.from_station_label = first_section.from.name; // ? from_station_label 
+        journey.to_station_ID = toStationID; // ? last_section.to.id
+        journey.to_station_label = last_section.to.name;
         // END !]
 
         journey.departure_datetime = item?.base_departure_date_time ?? item?.departure_date_time;
@@ -105,11 +112,9 @@ export const treatJourneyData = (data: any, fromStationID: string, toStationID: 
         journey.status = item.status;
         journey.bbIsWatchingYou = false;
         
-        return journey;
+        journeys.push(journey);
     })
 
-    debugger
-    
     // Treat the structure of all sections
     waypoints = sections.map((item: any): Waypoint => {
         // Means it's the first section of a journey

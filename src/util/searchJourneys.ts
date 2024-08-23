@@ -27,7 +27,13 @@ const searchJourneys = async (
             console.log('JOUR')
 
             const {data} = res;
-            journey.disruptions = data.disruptions;
+
+            if (data?.error)
+            {
+                throw(data.error)
+            }
+
+            journey.disruptions = data?.disruptions ?? [];
             journeys = data.journeys.map((item: any) => {
 
                 debugger
@@ -87,7 +93,7 @@ const searchJourneys = async (
             journeys = data.journeys;
 
         }).catch((err) => {
-            console.log('noooon ', err?.code, err?.request?.responseURL ?? err?.message)
+            console.log('noooon ', err?.code ?? err?.id, err?.request?.responseURL ?? err?.message)
         })
 
     } else if (from_station_ID || to_station_ID) {

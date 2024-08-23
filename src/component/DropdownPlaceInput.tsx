@@ -5,18 +5,16 @@ import {VStack, Input, Pressable, FlatList} from 'native-base'
 import {getPlaces} from 'service/station';
 import {Place} from 'constant/interfaces';
 
-const DropdownPlaceInput = ({ onSetStation, placeholder }: { onSetStation: Function, placeholder: string }): ReactElement => {
-  const [station, setStation] = useState<string>(),
-        [places, setPlaces] = useState<Place[]>(),
-		[displayList, setDisplayList] = useState<boolean>(false);
+const DropdownPlaceInput = ({ onSetChoice, placeholder }: { onSetChoice: Function, placeholder: string }): ReactElement => {
+  const [station, setStation] = useState<string>(''),
+        [places, setPlaces] = useState<Place[]>([]),
+				[displayList, setDisplayList] = useState<boolean>(false);
 
   const searchPlacesForSel = async (value: string): Promise<void> => {
 		try {
-			setDisplayList(true);
-
 			if (!value) {
 				console.log('vide');
-				onSetStation({});
+				onSetChoice('');
 				return;
 			}
 
@@ -24,13 +22,10 @@ const DropdownPlaceInput = ({ onSetStation, placeholder }: { onSetStation: Funct
 				const {data} = res,
 					  	status = res.status;
 		
-				if (data?.places) {
-					data.places.map((place: any) => {
-						delete place.stop_area;
-						delete place.quality;
-					})
-					setPlaces(data.places);
-				}
+				let result = data?.places ?? [];
+				setPlaces(result);
+				setDisplayList(true);
+
 			}).catch((err) => {
 				console.log('PROMESSE', err?.code, err?.request?.responseURL ?? err?.message);
 			})
@@ -46,7 +41,7 @@ const DropdownPlaceInput = ({ onSetStation, placeholder }: { onSetStation: Funct
 
   const selectPlace = (item: any) => {
 		setStation(item.name);
-		onSetStation(item);
+		onSetChoice(item.id);
 		setDisplayList(false);
   }
 
@@ -56,21 +51,21 @@ const DropdownPlaceInput = ({ onSetStation, placeholder }: { onSetStation: Funct
 	    	size='md'
         	style={style.input}
 	        value={station}
-          	onChangeText={(value)=>{onChangeText(value)}}
+          onChangeText={(value)=>{onChangeText(value)}}
 	        placeholder={placeholder}
 	        // rightElement={(<Icon/>)}
 	    />
 	    {displayList && <FlatList
 				data={places}
-				renderItem={({placeItem}: any)=>{
+				renderItem={({item}: any)=>{
 					return(<Pressable 
-						key={placeItem.id}
-						onPress={()=>selectPlace(placeItem)}
+						key={item.id}
+						onPress={()=>selectPlace(item)}
 						borderWidth=".5"
 						borderColor="coolGray.300"
 						p={1.5}
 						bg="coolGray.100">
-						<Text>{placeItem.name}</Text>
+						<Text>{item.name}</Text>
 					</Pressable>)}}
 			/>}
     </VStack>

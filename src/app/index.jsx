@@ -1,16 +1,11 @@
 import {NativeBaseProvider, Text} from "native-base";
+import App from '../../App';
 
 export default function Index() {
   return (
     <NativeBaseProvider>
-      <Text>TEST</Text>
+      <App />
+      {/*<Text>TEST</Text>*/}
     </NativeBaseProvider>
   );
 }
-
-/*export default function Index() {
-import App from '../../App';
-  return (
-      <App />
-  );
-}*/
