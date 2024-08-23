@@ -56,7 +56,7 @@ const searchJourneys = async (
                 journey.to_station_label = 
                 journey.departure_datetime = item?.base_departure_date_time ?? item?.departure_date_time;
                 journey.arrival_datetime = item?.base_arrival_date_time ?? item?.arrival_date_time;
-                journey.line_code = (item.nb_transfers == 0) ? first_section?.display_informations?.code // : undefined ;
+                journey.line_code = (item.nb_transfers == 0) ? first_section?.display_informations?.code : undefined ;
                 journey.status = item.status;
                 journey.bbIsWatchingYou = false;
 
@@ -68,8 +68,8 @@ const searchJourneys = async (
             })
 
             // treat structure of all sections
-            waypoints = sections.map((item: any) => Waypoint[] {
-            })
+            /*waypoints = sections.map((item: any) => Waypoint[] {
+            })*/
 
             debugger
             treatStops(waypoints);

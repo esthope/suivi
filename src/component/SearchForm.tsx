@@ -23,7 +23,8 @@ const SearchForm = (): ReactElement => {
 
   return (
   <View>
-    <DropdownPlaceInput
+      <Text>TESTdddd</Text>
+    {/*<DropdownPlaceInput
       onSetStation={setOrigin}
       placeholder="Départ" />
 
@@ -57,7 +58,7 @@ const SearchForm = (): ReactElement => {
       keyboardType="numeric"
     />
 
-    <CustomButton title="Franck" pressFunction={onPressSearch} />
+    <CustomButton title="Franck" pressFunction={onPressSearch} />*/}
   </View>)
 }
 

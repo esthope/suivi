@@ -48,7 +48,7 @@ export const treatStops = (waypoints: WayTypes): void => {
 }
 
 export const generateJourneyID = (): string => {
-
+/*
 ```
 amiens → chalons
     amiens : paris
@@ -69,7 +69,7 @@ amiens → chalons
 
 87581009
 87595009
-87313882
+87313882*/
 
 	return `JOU`;
 }
