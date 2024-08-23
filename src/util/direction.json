@@ -1,0 +1,2408 @@
+{
+    "pagination": {
+        "total_result": 10,
+        "start_page": 0,
+        "items_per_page": 10,
+        "items_on_page": 10
+    },
+    "arrivals": [
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:",
+                "name": "P22",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87313874",
+                    "name": "Amiens (Amiens)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87313874",
+                        "name": "Amiens",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87313874"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87313874"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Amiens (Amiens)",
+                        "coord": {
+                            "lon": "2.308277",
+                            "lat": "49.890584"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:",
+                    "name": "P22",
+                    "code": "P22",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "053200",
+                    "closing_time": "204000",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T165200",
+                "base_departure_date_time": "20240821T165200",
+                "arrival_date_time": "20240821T165100",
+                "base_arrival_date_time": "20240821T165100",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "base_schedule"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Arras (Arras)",
+                "label": "P22",
+                "color": "",
+                "code": "P22",
+                "name": "P22",
+                "links": [],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "P22",
+                "trip_short_name": "848869"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:848869:1187:Train"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        },
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:",
+                "name": "K44",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Coach",
+                        "name": "Autocar"
+                    },
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87313874",
+                    "name": "Amiens (Amiens)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87313874",
+                        "name": "Amiens",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87313874"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87313874"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Amiens (Amiens)",
+                        "coord": {
+                            "lon": "2.308277",
+                            "lat": "49.890584"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:",
+                    "name": "K44",
+                    "code": "K44",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Coach",
+                            "name": "Autocar"
+                        },
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "052700",
+                    "closing_time": "010800",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T165700",
+                "base_departure_date_time": "20240821T165200",
+                "arrival_date_time": "20240821T165500",
+                "base_arrival_date_time": "20240821T165000",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "realtime"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Amiens (Amiens)",
+                "label": "K44",
+                "color": "",
+                "code": "K44",
+                "name": "K44",
+                "links": [
+                    {
+                        "templated": false,
+                        "rel": "disruptions",
+                        "internal": true,
+                        "type": "disruption",
+                        "id": "ca0d6a5f-2c7e-43ab-9bc4-9a88acaa9c36"
+                    }
+                ],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "K44",
+                "trip_short_name": "843918"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:843918:1187:Train:RealTime:a2fe20ec-0599-40f1-9816-4a2f2955d345"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        },
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:",
+                "name": "P22",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87313874",
+                    "name": "Amiens (Amiens)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87313874",
+                        "name": "Amiens",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87313874"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87313874"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Amiens (Amiens)",
+                        "coord": {
+                            "lon": "2.308277",
+                            "lat": "49.890584"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:",
+                    "name": "P22",
+                    "code": "P22",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "053200",
+                    "closing_time": "204000",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T170700",
+                "base_departure_date_time": "20240821T170700",
+                "arrival_date_time": "20240821T170600",
+                "base_arrival_date_time": "20240821T170600",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "base_schedule"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Amiens (Amiens)",
+                "label": "P22",
+                "color": "",
+                "code": "P22",
+                "name": "P22",
+                "links": [],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "P22",
+                "trip_short_name": "848868"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:848868:1187:Train"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        },
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:",
+                "name": "K44",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Coach",
+                        "name": "Autocar"
+                    },
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87313874",
+                    "name": "Amiens (Amiens)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87313874",
+                        "name": "Amiens",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87313874"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87313874"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Amiens (Amiens)",
+                        "coord": {
+                            "lon": "2.308277",
+                            "lat": "49.890584"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:",
+                    "name": "K44",
+                    "code": "K44",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Coach",
+                            "name": "Autocar"
+                        },
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "052700",
+                    "closing_time": "010800",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T170900",
+                "base_departure_date_time": "20240821T170900",
+                "arrival_date_time": "20240821T170700",
+                "base_arrival_date_time": "20240821T170700",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "base_schedule"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Lille Flandres (Lille)",
+                "label": "K44",
+                "color": "",
+                "code": "K44",
+                "name": "K44",
+                "links": [],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "K44",
+                "trip_short_name": "843919"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:843919:1187:Train"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        },
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::D77B2111-D576-48D5-878E-5D6C094D611A:",
+                "name": "P21",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Coach",
+                        "name": "Autocar"
+                    },
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87317362",
+                    "name": "Abbeville (Abbeville)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87317362",
+                        "name": "Abbeville",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87317362"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87317362"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Abbeville (Abbeville)",
+                        "coord": {
+                            "lon": "1.824538",
+                            "lat": "50.102175"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::D77B2111-D576-48D5-878E-5D6C094D611A:",
+                    "name": "P21",
+                    "code": "P21",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Coach",
+                            "name": "Autocar"
+                        },
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "043700",
+                    "closing_time": "203900",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T172300",
+                "base_departure_date_time": "20240821T172300",
+                "arrival_date_time": "20240821T172300",
+                "base_arrival_date_time": "20240821T172300",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "base_schedule"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Albert (Albert)",
+                "label": "P21",
+                "color": "",
+                "code": "P21",
+                "name": "P21",
+                "links": [],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "P21",
+                "trip_short_name": "848368"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::D77B2111-D576-48D5-878E-5D6C094D611A:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:848368:1187:Train"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::D77B2111-D576-48D5-878E-5D6C094D611A:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        },
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:",
+                "name": "K44",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Coach",
+                        "name": "Autocar"
+                    },
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87313874",
+                    "name": "Amiens (Amiens)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87313874",
+                        "name": "Amiens",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87313874"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87313874"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Amiens (Amiens)",
+                        "coord": {
+                            "lon": "2.308277",
+                            "lat": "49.890584"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:",
+                    "name": "K44",
+                    "code": "K44",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Coach",
+                            "name": "Autocar"
+                        },
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "052700",
+                    "closing_time": "010800",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T175100",
+                "base_departure_date_time": "20240821T175100",
+                "arrival_date_time": "20240821T174900",
+                "base_arrival_date_time": "20240821T174900",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "base_schedule"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Amiens (Amiens)",
+                "label": "K44",
+                "color": "",
+                "code": "K44",
+                "name": "K44",
+                "links": [],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "K44",
+                "trip_short_name": "843920"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:843920:1187:Train"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        },
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:",
+                "name": "P22",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87313874",
+                    "name": "Amiens (Amiens)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87313874",
+                        "name": "Amiens",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87313874"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87313874"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Amiens (Amiens)",
+                        "coord": {
+                            "lon": "2.308277",
+                            "lat": "49.890584"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:",
+                    "name": "P22",
+                    "code": "P22",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "053200",
+                    "closing_time": "204000",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T175200",
+                "base_departure_date_time": "20240821T175200",
+                "arrival_date_time": "20240821T175100",
+                "base_arrival_date_time": "20240821T175100",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "base_schedule"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Arras (Arras)",
+                "label": "P22",
+                "color": "",
+                "code": "P22",
+                "name": "P22",
+                "links": [],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "P22",
+                "trip_short_name": "848871"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:848871:1187:Train"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        },
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:",
+                "name": "K44",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Coach",
+                        "name": "Autocar"
+                    },
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87313874",
+                    "name": "Amiens (Amiens)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87313874",
+                        "name": "Amiens",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87313874"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87313874"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Amiens (Amiens)",
+                        "coord": {
+                            "lon": "2.308277",
+                            "lat": "49.890584"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:",
+                    "name": "K44",
+                    "code": "K44",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Coach",
+                            "name": "Autocar"
+                        },
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "052700",
+                    "closing_time": "010800",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T180900",
+                "base_departure_date_time": "20240821T180900",
+                "arrival_date_time": "20240821T180700",
+                "base_arrival_date_time": "20240821T180700",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "base_schedule"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Lille Flandres (Lille)",
+                "label": "K44",
+                "color": "",
+                "code": "K44",
+                "name": "K44",
+                "links": [],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "K44",
+                "trip_short_name": "843921"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:843921:1187:Train"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::E597DAD9-42BF-4927-BEDB-0B05091BCBBE:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        },
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:",
+                "name": "P22",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87313874",
+                    "name": "Amiens (Amiens)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87313874",
+                        "name": "Amiens",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87313874"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87313874"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Amiens (Amiens)",
+                        "coord": {
+                            "lon": "2.308277",
+                            "lat": "49.890584"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:",
+                    "name": "P22",
+                    "code": "P22",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "053200",
+                    "closing_time": "204000",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T180900",
+                "base_departure_date_time": "20240821T180900",
+                "arrival_date_time": "20240821T180800",
+                "base_arrival_date_time": "20240821T180800",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "base_schedule"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Amiens (Amiens)",
+                "label": "P22",
+                "color": "",
+                "code": "P22",
+                "name": "P22",
+                "links": [],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "P22",
+                "trip_short_name": "848870"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:848870:1187:Train"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::7BB51D2B-5268-45E9-AEEE-1F1053DE381C:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        },
+        {
+            "route": {
+                "id": "route:SNCF:FR:Line::D77B2111-D576-48D5-878E-5D6C094D611A:",
+                "name": "P21",
+                "is_frequence": "False",
+                "direction_type": "forward",
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Coach",
+                        "name": "Autocar"
+                    },
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités"
+                    }
+                ],
+                "direction": {
+                    "id": "stop_area:SNCF:87317362",
+                    "name": "Abbeville (Abbeville)",
+                    "quality": 0,
+                    "stop_area": {
+                        "id": "stop_area:SNCF:87317362",
+                        "name": "Abbeville",
+                        "codes": [
+                            {
+                                "type": "source",
+                                "value": "87317362"
+                            },
+                            {
+                                "type": "uic",
+                                "value": "87317362"
+                            }
+                        ],
+                        "timezone": "Europe/Paris",
+                        "label": "Abbeville (Abbeville)",
+                        "coord": {
+                            "lon": "1.824538",
+                            "lat": "50.102175"
+                        },
+                        "links": []
+                    },
+                    "embedded_type": "stop_area"
+                },
+                "geojson": {
+                    "type": "MultiLineString",
+                    "coordinates": []
+                },
+                "links": [],
+                "line": {
+                    "id": "line:SNCF:FR:Line::D77B2111-D576-48D5-878E-5D6C094D611A:",
+                    "name": "P21",
+                    "code": "P21",
+                    "color": "",
+                    "text_color": "",
+                    "codes": [],
+                    "physical_modes": [
+                        {
+                            "id": "physical_mode:Coach",
+                            "name": "Autocar"
+                        },
+                        {
+                            "id": "physical_mode:Train",
+                            "name": "TER / Intercités"
+                        }
+                    ],
+                    "commercial_mode": {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    "network": {
+                        "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF",
+                        "links": []
+                    },
+                    "opening_time": "043700",
+                    "closing_time": "203900",
+                    "geojson": {
+                        "type": "MultiLineString",
+                        "coordinates": []
+                    },
+                    "links": []
+                }
+            },
+            "stop_point": {
+                "id": "stop_point:SNCF:87313072:Train",
+                "name": "Albert",
+                "label": "Albert (Albert)",
+                "coord": {
+                    "lon": "2.644481",
+                    "lat": "50.005395"
+                },
+                "links": [],
+                "commercial_modes": [
+                    {
+                        "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:",
+                        "name": "TER HDF"
+                    },
+                    {
+                        "id": "commercial_mode:TER",
+                        "name": "TER"
+                    }
+                ],
+                "physical_modes": [
+                    {
+                        "id": "physical_mode:Train",
+                        "name": "TER / Intercités",
+                        "co2_emission_rate": {
+                            "value": 11.9,
+                            "unit": "gEC/Km"
+                        }
+                    }
+                ],
+                "administrative_regions": [
+                    {
+                        "id": "admin:fr:80016",
+                        "name": "Albert",
+                        "level": 8,
+                        "zip_code": "80300",
+                        "label": "Albert (80300)",
+                        "insee": "80016",
+                        "coord": {
+                            "lon": "2.6509223",
+                            "lat": "50.0018022"
+                        }
+                    }
+                ],
+                "stop_area": {
+                    "id": "stop_area:SNCF:87313072",
+                    "name": "Albert",
+                    "codes": [
+                        {
+                            "type": "source",
+                            "value": "87313072"
+                        },
+                        {
+                            "type": "uic",
+                            "value": "87313072"
+                        }
+                    ],
+                    "timezone": "Europe/Paris",
+                    "label": "Albert (Albert)",
+                    "coord": {
+                        "lon": "2.644481",
+                        "lat": "50.005395"
+                    },
+                    "links": [],
+                    "administrative_regions": [
+                        {
+                            "id": "admin:fr:80016",
+                            "name": "Albert",
+                            "level": 8,
+                            "zip_code": "80300",
+                            "label": "Albert (80300)",
+                            "insee": "80016",
+                            "coord": {
+                                "lon": "2.6509223",
+                                "lat": "50.0018022"
+                            }
+                        }
+                    ]
+                },
+                "equipments": []
+            },
+            "stop_date_time": {
+                "departure_date_time": "20240821T182300",
+                "base_departure_date_time": "20240821T182300",
+                "arrival_date_time": "20240821T182300",
+                "base_arrival_date_time": "20240821T182300",
+                "additional_informations": [],
+                "links": [],
+                "data_freshness": "base_schedule"
+            },
+            "display_informations": {
+                "commercial_mode": "TER HDF",
+                "network": "TER HDF",
+                "direction": "Albert (Albert)",
+                "label": "P21",
+                "color": "",
+                "code": "P21",
+                "name": "P21",
+                "links": [],
+                "text_color": "",
+                "description": "",
+                "physical_mode": "TER / Intercités",
+                "equipments": [],
+                "headsign": "P21",
+                "trip_short_name": "848370"
+            },
+            "links": [
+                {
+                    "type": "line",
+                    "id": "line:SNCF:FR:Line::D77B2111-D576-48D5-878E-5D6C094D611A:"
+                },
+                {
+                    "type": "vehicle_journey",
+                    "id": "vehicle_journey:SNCF:2024-08-21:848370:1187:Train"
+                },
+                {
+                    "type": "route",
+                    "id": "route:SNCF:FR:Line::D77B2111-D576-48D5-878E-5D6C094D611A:"
+                },
+                {
+                    "type": "commercial_mode",
+                    "id": "commercial_mode:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                },
+                {
+                    "type": "physical_mode",
+                    "id": "physical_mode:Train"
+                },
+                {
+                    "type": "network",
+                    "id": "network:SNCF:FR:Branding::6dfb1ec4-50b5-42a8-a531-a792b1ea6f2e:"
+                }
+            ]
+        }
+    ],
+    "disruptions": [
+        {
+            "id": "ca0d6a5f-2c7e-43ab-9bc4-9a88acaa9c36",
+            "disruption_id": "ca0d6a5f-2c7e-43ab-9bc4-9a88acaa9c36",
+            "impact_id": "ca0d6a5f-2c7e-43ab-9bc4-9a88acaa9c36",
+            "application_periods": [
+                {
+                    "begin": "20240821T155300",
+                    "end": "20240821T171500"
+                }
+            ],
+            "status": "past",
+            "updated_at": "20240822T075746",
+            "cause": "",
+            "severity": {
+                "name": "trip delayed",
+                "effect": "SIGNIFICANT_DELAYS",
+                "color": "#000000",
+                "priority": 42
+            },
+            "messages": [
+                {
+                    "text": "Conditions de départ non réunies",
+                    "channel": {
+                        "content_type": "",
+                        "id": "rt",
+                        "name": "rt",
+                        "types": [
+                            "web",
+                            "mobile"
+                        ]
+                    }
+                }
+            ],
+            "impacted_objects": [
+                {
+                    "pt_object": {
+                        "id": "SNCF:2024-08-21:843918:1187:Train",
+                        "name": "SNCF:2024-08-21:843918:1187:Train",
+                        "quality": 0,
+                        "trip": {
+                            "id": "SNCF:2024-08-21:843918:1187:Train",
+                            "name": "843918"
+                        },
+                        "embedded_type": "trip"
+                    },
+                    "impacted_stops": [
+                        {
+                            "stop_point": {
+                                "id": "stop_point:SNCF:87286005:Train",
+                                "name": "Lille Flandres",
+                                "label": "Lille Flandres (Lille)",
+                                "coord": {
+                                    "lon": "3.06987",
+                                    "lat": "50.636577"
+                                },
+                                "links": [],
+                                "equipments": []
+                            },
+                            "base_arrival_time": "155300",
+                            "base_departure_time": "155300",
+                            "amended_arrival_time": "155800",
+                            "amended_departure_time": "155800",
+                            "cause": "Conditions de départ non réunies",
+                            "stop_time_effect": "delayed",
+                            "departure_status": "delayed",
+                            "arrival_status": "unchanged",
+                            "is_detour": false
+                        },
+                        {
+                            "stop_point": {
+                                "id": "stop_point:SNCF:87345009:Train",
+                                "name": "Douai",
+                                "label": "Douai (Douai)",
+                                "coord": {
+                                    "lon": "3.089958",
+                                    "lat": "50.371673"
+                                },
+                                "links": [],
+                                "equipments": []
+                            },
+                            "base_arrival_time": "161300",
+                            "base_departure_time": "161500",
+                            "amended_arrival_time": "161800",
+                            "amended_departure_time": "162000",
+                            "cause": "Conditions de départ non réunies",
+                            "stop_time_effect": "delayed",
+                            "departure_status": "delayed",
+                            "arrival_status": "delayed",
+                            "is_detour": false
+                        },
+                        {
+                            "stop_point": {
+                                "id": "stop_point:SNCF:87342014:Train",
+                                "name": "Arras",
+                                "label": "Arras (Arras)",
+                                "coord": {
+                                    "lon": "2.781314",
+                                    "lat": "50.286971"
+                                },
+                                "links": [],
+                                "equipments": []
+                            },
+                            "base_arrival_time": "162800",
+                            "base_departure_time": "163000",
+                            "amended_arrival_time": "163300",
+                            "amended_departure_time": "163500",
+                            "cause": "Conditions de départ non réunies",
+                            "stop_time_effect": "delayed",
+                            "departure_status": "delayed",
+                            "arrival_status": "delayed",
+                            "is_detour": false
+                        },
+                        {
+                            "stop_point": {
+                                "id": "stop_point:SNCF:87342048:Train",
+                                "name": "Achiet",
+                                "label": "Achiet (Achiet-le-Grand)",
+                                "coord": {
+                                    "lon": "2.780112",
+                                    "lat": "50.131919"
+                                },
+                                "links": [],
+                                "equipments": []
+                            },
+                            "base_arrival_time": "163900",
+                            "base_departure_time": "164000",
+                            "amended_arrival_time": "164400",
+                            "amended_departure_time": "164500",
+                            "cause": "Conditions de départ non réunies",
+                            "stop_time_effect": "delayed",
+                            "departure_status": "delayed",
+                            "arrival_status": "delayed",
+                            "is_detour": false
+                        },
+                        {
+                            "stop_point": {
+                                "id": "stop_point:SNCF:87313072:Train",
+                                "name": "Albert",
+                                "label": "Albert (Albert)",
+                                "coord": {
+                                    "lon": "2.644481",
+                                    "lat": "50.005395"
+                                },
+                                "links": [],
+                                "equipments": []
+                            },
+                            "base_arrival_time": "165000",
+                            "base_departure_time": "165200",
+                            "amended_arrival_time": "165500",
+                            "amended_departure_time": "165700",
+                            "cause": "Conditions de départ non réunies",
+                            "stop_time_effect": "delayed",
+                            "departure_status": "delayed",
+                            "arrival_status": "delayed",
+                            "is_detour": false
+                        },
+                        {
+                            "stop_point": {
+                                "id": "stop_point:SNCF:87313874:Train",
+                                "name": "Amiens",
+                                "label": "Amiens (Amiens)",
+                                "coord": {
+                                    "lon": "2.308277",
+                                    "lat": "49.890584"
+                                },
+                                "links": [],
+                                "equipments": []
+                            },
+                            "base_arrival_time": "171000",
+                            "base_departure_time": "171000",
+                            "amended_arrival_time": "171500",
+                            "amended_departure_time": "171500",
+                            "cause": "Conditions de départ non réunies",
+                            "stop_time_effect": "delayed",
+                            "departure_status": "unchanged",
+                            "arrival_status": "delayed",
+                            "is_detour": false
+                        }
+                    ]
+                }
+            ],
+            "uri": "ca0d6a5f-2c7e-43ab-9bc4-9a88acaa9c36",
+            "disruption_uri": "ca0d6a5f-2c7e-43ab-9bc4-9a88acaa9c36",
+            "contributor": "realtime.sncf.piv"
+        }
+    ],
+    "links": [
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/routes/{route.id}",
+            "templated": true,
+            "rel": "routes",
+            "type": "route"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/physical_modes/{physical_mode.id}",
+            "templated": true,
+            "rel": "physical_modes",
+            "type": "physical_mode"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/networks/{network.id}",
+            "templated": true,
+            "rel": "networks",
+            "type": "network"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/disruptions/{disruptions.id}",
+            "templated": true,
+            "rel": "disruptions",
+            "type": "disruptions"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/vehicle_journeys/{vehicle_journey.id}",
+            "templated": true,
+            "rel": "vehicle_journeys",
+            "type": "vehicle_journey"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/physical_modes/{physical_modes.id}",
+            "templated": true,
+            "rel": "physical_modes",
+            "type": "physical_modes"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/commercial_modes/{commercial_modes.id}",
+            "templated": true,
+            "rel": "commercial_modes",
+            "type": "commercial_modes"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/disruptions/{disruption.id}",
+            "templated": true,
+            "rel": "disruptions",
+            "type": "disruption"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/lines/{line.id}",
+            "templated": true,
+            "rel": "lines",
+            "type": "line"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/stop_areas/{stop_area.id}",
+            "templated": true,
+            "rel": "stop_areas",
+            "type": "stop_area"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/stop_points/{stop_point.id}",
+            "templated": true,
+            "rel": "stop_points",
+            "type": "stop_point"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/commercial_modes/{commercial_mode.id}",
+            "templated": true,
+            "rel": "commercial_modes",
+            "type": "commercial_mode"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/trips/{trip.id}",
+            "templated": true,
+            "rel": "trips",
+            "type": "trip"
+        },
+        {
+            "href": "https://api.sncf.com/v1/coverage/sncf/stop_points/stop_point:SNCF:87313072:Train/arrivals?from_datetime=20240821T165000",
+            "type": "first",
+            "templated": false
+        }
+    ]
+}

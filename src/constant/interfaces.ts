@@ -1,9 +1,29 @@
+type Base = {
+	from_station_ID: string,
+	from_station_label: string,
+	to_station_ID: string,
+	to_station_label: string,
+	departure_datetime: string, 
+	arrival_datetime: string,
+	line_code ?: string, // JOUR : si tranfer == 1
+	status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
+	disruptions?: object[] // [!] ?disruptionsID : gestion des perturbations
+}
+
 export interface Place {
 	place_id: string,
 	name: string,
 	embedded_type: "administrative_region" | "stop_point"| "stop_area" | never,
 	longitude?: string,
 	latitude?: string,
+}
+
+export interface Line {
+	line_code: string,
+	startStation: string,
+	terminus: string,
+	stops_and_datetimes: object[],
+	// ?duration: number, // où récupérer
 }
 
 export interface BigBrother {
@@ -23,14 +43,6 @@ export interface BigBrother {
 	// disruption_only: true | false
 }
 
-export interface Line {
-	line_code: string,
-	startStation: string,
-	terminus: string,
-	stops_and_datetimes: object[],
-	// ?duration: number, // où récupérer
-}
-
 export interface Stop {
 	stop_id: string,
 	name: string,
@@ -44,13 +56,13 @@ export interface Stop {
 
 // étape intermédiaire du trajet
 export interface Waypoint {
-	url: string, // retirer/changer min_nb_journeys, datetime, count lors|dans de l'enregistrement des crières (ou d'après eux) de suivi (fractionner pour évo eventuelles)
-	duration: number, // si 0 = trajet zone à stop_point
-	line_code: string, // si type != walking
-	direction: string, // si type != walking
+	journey_url: string, // retirer/changer min_nb_journeys, datetime, count lors|dans de l'enregistrement des crières (ou d'après eux) de suivi (fractionner pour évo eventuelles)
+	duration: number, // si 0 = trajet de zone à stop_point
+	line_code?: string, // si type != walking
+	direction?: string, // si type != walking
 	section_type?: "crow_fly" | "public_transport" | "transfer" | "waiting",
 	transfer_type?: "walking" | never, // si type transfer
-	commercial_mode: string, // si type != walking
+	commercial_mode?: string, // si type != walking
 	first_place?: Place, // 1er section : selection utilisateur, identifier type point:Coach ou admin..., si type != waiting
 	departure_datetime: string, 
 	departure_delayed?: string, // qd type != walking | transfer
@@ -61,21 +73,14 @@ export interface Waypoint {
 }
 
 // itinerary
-export interface Journey {
-	journey_url: string, // JOU 87313874:Train 87286005:Train HHmm
+export interface Journey extends Base {
+	url: string,
 	duration: number,
 	transfer: number,
-	from_station_ID: string,
-	from_station_label: string,
-	to_station_ID: string,
-	to_station_label: string,
-	departure_datetime: string, 
-	arrival_datetime: string,
-	line_code ?: string, // si tranfer == 1
-	status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
-	disturbtions: object[],
 	// waypoints: Waypoints | Waypoints[], ? plutôt par ID
 	bbIsWatchingYou: true | false
 }
 
-type WayTypes = Waypoint | Waypoint[];
+export interface Next extends Base {}
+
+export type WayTypes = Waypoint[] | Waypoint;
