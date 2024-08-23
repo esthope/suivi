@@ -55,39 +55,39 @@ const SearchForm = (): ReactElement => {
             aJourneys = (direction == 'FROM') ? data?.departures : data?.arrivals,
             daisruptions = data.disruptions;*/
             
-            res.data.map((item: any): Next => {
-              let datetime = item.stop_date_time,
-                  point = item.stop_point,
-                  route = item.route,
-                  infos = item.display_informations;
+            // res.data.map((item: any): Next => {
+            //   let datetime = item.stop_date_time,
+            //       point = item.stop_point,
+            //       route = item.route,
+            //       infos = item.display_informations;
 
-              const next = {
-                // entete
-                from_station_ID: point.id,
-                from_station_label: point.name /*point.label, fromStationID*/,
-                to_station_ID: route.direction.id /*.dir.stop_area.id, fromStationID*/,
-                to_station_label: route.direction.name /*.dir.stop_area.name*/,
-                // item
-                line_code: route.code /*route.line.code, infos.name*/,
-              // url: ,
-              }
+            //   const next = {
+            //     // entete
+            //     from_station_ID: point.id,
+            //     from_station_label: point.name /*point.label, fromStationID*/,
+            //     to_station_ID: route.direction.id /*.dir.stop_area.id, fromStationID*/,
+            //     to_station_label: route.direction.name /*.dir.stop_area.name*/,
+            //     // item
+            //     line_code: route.code /*route.line.code, infos.name*/,
+            //   // url: ,
+            //   }
 
-              next.disruptionsID: infos.links[/*type = disruption*/].id,
+            //   next.disruptionsID: infos.links[/*type = disruption*/].id,
               
-              next.status: disruption.severity.effect,
+            //   next.status: disruption.severity.effect,
 
-              // (next.disruptionsID) ?
-              next.departure_datetime = 
-                (datetime.departure_date_time != datetime.base_departure_date_time)
-                ? datetime.departure_date_time 
-                : datetime.base_departure_date_time;
+            //   // (next.disruptionsID) ?
+            //   next.departure_datetime = 
+            //     (datetime.departure_date_time != datetime.base_departure_date_time)
+            //     ? datetime.departure_date_time 
+            //     : datetime.base_departure_date_time;
 
-              next.arrival_datetime = 
-                (datetime.arrival_date_time != datetime.base_arrival_date_time) 
-                ? datetime.arrival_date_time 
-                : datetime.base_arrival_date_time;
+            //   next.arrival_datetime = 
+            //     (datetime.arrival_date_time != datetime.base_arrival_date_time) 
+            //     ? datetime.arrival_date_time 
+            //     : datetime.base_arrival_date_time;
 
-            })
+            // })
 
 
 
