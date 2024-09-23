@@ -4,7 +4,9 @@ type Base = {
 	to_station_ID: string,
 	to_station_label: string,
 	departure_datetime: string, 
+	departure_delayed?: string,
 	arrival_datetime: string,
+	arrival_delayed?: string,
 	line_code ?: string, // JOUR : si tranfer == 1
 	status: ['' | 'SIGNIFICANT_DELAYS' | 'REDUCED_SERVICE' | 'NO_SERVICE' | 'MODIFIED_SERVICE' | 'ADDITIONAL_SERVICE' | 'UNKNOWN_EFFECT' | 'DETOUR' | 'OTHER_EFFECT'],
 	disruptions?: object[] // [!] ?disruptionsID : gestion des perturbations
@@ -80,7 +82,5 @@ export interface Journey extends Base {
 	// waypoints: Waypoints | Waypoints[], ? plutôt par ID
 	bbIsWatchingYou: true | false
 }
-
-export interface Next extends Base {}
 
 export type WayTypes = Waypoint[] | Waypoint;

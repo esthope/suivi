@@ -1,5 +1,5 @@
 import {useState, useEffect, ReactElement} from 'react';
-import {Journey, Waypoint, Next} from 'constant/interfaces';
+import {Journey, Waypoint} from 'constant/interfaces';
 import {getJourneys, getDirections} from 'service/journey';
 import {treatJourneyData} from 'util/dataTreatment';
 import {View, Input, Box, Select, VStack, Stack, Center} from "native-base";
@@ -16,6 +16,7 @@ const SearchForm = (): ReactElement => {
         // data treatment
         [waypoints, setWaypoints] = useState<Waypoint[]>(),
         [journeys, setJourneys] = useState<Journey[]>()
+        [nexts, setNexts] = useState<Next[]>()
         ;
 
   const onPressSearch = async (): Promise<void> => {
@@ -58,44 +59,51 @@ const SearchForm = (): ReactElement => {
             console.log(data);
             /*sCode = data.code,
             aJourneys = (direction == 'FROM') ? data?.departures : data?.arrivals,
-            daisruptions = data.disruptions;*/
+            disruptions = data.disruptions;*/
             
-            // res.data.map((item: any): Next => {
-            //   let datetime = item.stop_date_time,
-            //       point = item.stop_point,
-            //       route = item.route,
-            //       infos = item.display_informations;
+            let journeysDir: Journey[] = [],
+                journey: Journey<Next> = {};
 
-            //   const next = {
-            //     // entete
-            //     from_station_ID: point.id,
-            //     from_station_label: point.name /*point.label, fromStationID*/,
-            //     to_station_ID: route.direction.id /*.dir.stop_area.id, fromStationID*/,
-            //     to_station_label: route.direction.name /*.dir.stop_area.name*/,
-            //     // item
-            //     line_code: route.code /*route.line.code, infos.name*/,
-            //   // url: ,
-            //   }
+            journey.url = null; // [!] que faire ?
+            journey.transfer = 0;
 
-            //   next.disruptionsID: infos.links[/*type = disruption*/].id,
-              
-            //   next.status: disruption.severity.effect,
+            res.data.map((item: any): Next => {
+              let datetime = item.stop_date_time,
+                  point = item.stop_point,
+                  route = item.route,
+                  infos = item.display_informations;
 
-            //   // (next.disruptionsID) ?
-            //   next.departure_datetime = 
-            //     (datetime.departure_date_time != datetime.base_departure_date_time)
-            //     ? datetime.departure_date_time 
-            //     : datetime.base_departure_date_time;
+              journey = {
+                // entete
+                from_station_ID: point.id,
+                from_station_label: point.name /*point.label, fromStationID*/,
+                to_station_ID: route.direction.id /*.dir.stop_area.id, fromStationID*/,
+                to_station_label: route.direction.name /*.dir.stop_area.name*/,
+                // item
+                line_code: route.code /*route.line.code, infos.name*/,
+                // url: ,
+              }
 
-            //   next.arrival_datetime = 
-            //     (datetime.arrival_date_time != datetime.base_arrival_date_time) 
-            //     ? datetime.arrival_date_time 
-            //     : datetime.base_arrival_date_time;
+              journey.disruptionsID: infos.links[0/*type = disruption*/].id,
+              journey.status: disruption.severity.effect,
 
-            // })
+              // arrival in station 
+              journey.arrival_datetime = 
+                (datetime.arrival_date_time != datetime.base_arrival_date_time) 
+                ? datetime.arrival_date_time 
+                : datetime.base_arrival_date_time;
 
+              // (journey.disruptionsID) ?
+              // departure from station 
+              journey.departure_datetime = 
+                (datetime.departure_date_time != datetime.base_departure_date_time)
+                ? datetime.departure_date_time 
+                : datetime.base_departure_date_time;
 
+              journeysDir.push(journey);
+            })
 
+            setJourneys(journeysDir); // recherche journey on click dessus
         })
         .catch((err: any) => {
             console.log('!DIR', err.code, err.request.responseURL ?? err?.mess);
