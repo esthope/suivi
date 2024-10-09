@@ -81,24 +81,16 @@ const SearchForm = (): ReactElement => {
                 to_station_label: route.direction.name /*.dir.stop_area.name*/,
                 // item
                 line_code: route.code /*route.line.code, infos.name*/,
+                // [!] vérifier les données – arrival in station 
+                departure_datetime: datetime.departure_date_time,
+                departure_delayed: datetime.base_departure_date_time,
+                arrival_datetime: datetime.base_arrival_date_time,
+                // [!] vérifier les données – departure from station 
+                arrival_delayed: datetime.arrival_date_time,
                 // url: ,
+                disruptionsID: infos.links[0/*type = disruption*/].id,
+                status: disruption.severity.effect,
               }
-
-              journey.disruptionsID: infos.links[0/*type = disruption*/].id,
-              journey.status: disruption.severity.effect,
-
-              // arrival in station 
-              journey.arrival_datetime = 
-                (datetime.arrival_date_time != datetime.base_arrival_date_time) 
-                ? datetime.arrival_date_time 
-                : datetime.base_arrival_date_time;
-
-              // (journey.disruptionsID) ?
-              // departure from station 
-              journey.departure_datetime = 
-                (datetime.departure_date_time != datetime.base_departure_date_time)
-                ? datetime.departure_date_time 
-                : datetime.base_departure_date_time;
 
               journeysDir.push(journey);
             })

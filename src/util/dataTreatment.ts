@@ -106,33 +106,15 @@ export const treatJourneyData = (data: any, fromStationID: string, toStationID: 
         journey.to_station_label = last_section.to.name;
         // END !]
 
-        journey.departure_datetime = item?.base_departure_date_time ?? item?.departure_date_time;
-        journey.arrival_datetime = item?.base_arrival_date_time ?? item?.arrival_date_time;
-
-        journey.arrival_datetime = 
-            (datetime.arrival_date_time != datetime.base_arrival_date_time) 
-            ? datetime.arrival_date_time 
-            : datetime.base_arrival_date_time;
-
-        // (journey.disruptionsID) ?
-        // departure from station 
-        journey.departure_datetime = 
-            (datetime.departure_date_time != datetime.base_departure_date_time)
-            ? datetime.departure_date_time 
-            : datetime.base_departure_date_time;
-
-        if (item?.base_departure_date_time) 
-        {
-           journey.departure_datetime = item?.base_departure_date_time;
-           journey.departure_delayed = item?.departure_date_time;
-           journey.arrival_datetime = item?.base_arrival_date_time;
-           journey.arrival_delayed = item?.departure_date_time;
-        }
+        // [!] vérifier les données selon les status
+        journey.arrival_datetime = item?.base_arrival_date_time;
+        journey.arrival_delayed = item?.departure_date_time;
+        journey.departure_datetime = item?.base_departure_date_time;
+        journey.departure_delayed = item?.departure_date_time;
 
         journey.line_code = (item.nb_transfers == 0) ? first_section?.display_informations?.code : undefined ;
         journey.status = item.status;
         journey.bbIsWatchingYou = false;
-        
         journeys.push(journey);
     })
 
